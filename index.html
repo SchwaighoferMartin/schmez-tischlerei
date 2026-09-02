@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tischlerei Schmez – Küchen im Salzkammergut. Ein Ansprechpartner für alles.</title>
+<meta name="description" content="Wir planen und bauen deine Küche und koordinieren Maurer, Installateur, Elektriker und Maler gleich mit. Ein Ansprechpartner statt fünf Baustellen. Tischlerei Schmez, Gosau.">
+
+<style>
+/* ==========================================================================
+   TISCHLEREI SCHMEZ – Einseiter
+   Aufbau: 1 Farben/Basis · 2 Bausteine · 3 Abschnitte · 4 Desktop
+   Kein Framework, keine externen Schriften, keine externen Dateien.
+   ========================================================================== */
+
+/* --- 1. FARBEN UND SCHRIFT ---------------------------------------------
+   >>> HIER FARBEN ÄNDERN <<<
+   Alle Farben der Seite stehen nur an dieser Stelle.
+   ----------------------------------------------------------------------- */
+:root{
+  --rot:        #9B2321;   /* Firmenrot – Buttons, Akzente, Zahlen        */
+  --rot-dunkel: #7E1C1A;   /* Firmenrot beim Draufzeigen/Klicken          */
+  --rot-hell:   #F3DEDC;   /* zartes Rot – Zitatflächen                   */
+  --rot-licht:  #E5A9A5;   /* Rot auf dunklem Grund (heller, damit lesbar)*/
+  --papier:     #F7F3EC;   /* warmes Off-White – Seitenhintergrund        */
+  --papier-2:   #FFFFFF;   /* Weiß – Karten                               */
+  --tinte:      #2B2420;   /* Kaffeebraun – Fließtext und dunkle Flächen  */
+  --gedaempft:  #5C4F45;   /* Nebentext (Kontrast 7,1:1 – WCAG AA erfüllt)*/
+  --linie:      #DED5C8;   /* Trennlinien und Rahmen                      */
+
+  --schrift: "Swis721 BT","Swiss 721 BT","Helvetica Neue",Helvetica,Arial,
+             "Segoe UI",system-ui,sans-serif;
+  --breite: 1120px;        /* maximale Inhaltsbreite                      */
+  --radius: 4px;
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+
+html{
+  scroll-behavior:smooth;
+  /* Die Kopfzeile bleibt beim Scrollen oben stehen (position:sticky).
+     Ohne diese Zeile springt ein Menülink zwar an die richtige Stelle,
+     die Überschrift verschwindet aber HINTER der Kopfzeile – es sieht
+     dann so aus, als würde der Link nichts tun.
+     Wert = Höhe der ganzen Kopfleiste (Logo-Zeile + Reiter) plus Luft.
+     Gemessen: Handy 100px, Schreibtisch 131px. Hier steht immer etwas
+     mehr, damit die Überschrift nicht direkt an der Leiste klebt.
+     Wenn du das Logo größer machst, diese beiden Werte mitziehen –
+     den zweiten findest du weiter unten bei den breiten Bildschirmen. */
+  scroll-padding-top:114px;
+}
+@media (prefers-reduced-motion:reduce){ html{ scroll-behavior:auto; } }
+
+body{
+  margin:0;
+  background:var(--papier);
+  color:var(--tinte);
+  font-family:var(--schrift);
+  font-size:17px;
+  line-height:1.6;
+  -webkit-text-size-adjust:100%;
+  /* Platz für die feste Leiste am unteren Rand (nur Handy) */
+  padding-bottom:76px;
+}
+
+img{ max-width:100%; display:block; }
+
+h1,h2,h3{ line-height:1.15; margin:0 0 .5em; font-weight:600; letter-spacing:-0.015em; }
+h1{ font-size:2.1rem; }
+h2{ font-size:1.7rem; }
+h3{ font-size:1.15rem; }
+p{ margin:0 0 1em; }
+
+a{ color:var(--rot); }
+
+/* Tastaturbedienung: Fokus muss immer klar sichtbar sein (WCAG 2.2) */
+a:focus-visible,button:focus-visible,input:focus-visible,
+textarea:focus-visible,select:focus-visible,summary:focus-visible{
+  outline:3px solid var(--rot);
+  outline-offset:3px;
+  border-radius:2px;
+}
+
+/* Sprunglink für Tastatur und Screenreader */
+.skip{
+  position:absolute; left:-9999px; top:0; z-index:100;
+  background:var(--rot); color:#fff; padding:12px 18px; font-weight:600;
+}
+.skip:focus{ left:8px; top:8px; }
+
+/* --- 2. BAUSTEINE ------------------------------------------------------- */
+.inhalt{ width:100%; max-width:var(--breite); margin:0 auto; padding:0 20px; }
+
+section{ padding:56px 0; }
+.abschnitt-titel{ max-width:24ch; }
+.vorzeile{
+  font-size:.8rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--rot); margin:0 0 10px;
+}
+.lead{ font-size:1.08rem; color:var(--gedaempft); max-width:62ch; }
+
+/* Buttons */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  min-height:56px; padding:15px 26px;
+  font:inherit; font-size:1.03rem; font-weight:600; text-align:center;
+  border:2px solid var(--rot); border-radius:var(--radius);
+  background:var(--rot); color:#fff; text-decoration:none;
+  cursor:pointer; transition:background .15s ease;
+}
+.btn:hover{ background:var(--rot-dunkel); border-color:var(--rot-dunkel); }
+.btn--zweit{ background:transparent; color:var(--rot); }
+.btn--zweit:hover{ background:var(--rot-hell); }
+.btn-reihe{ display:flex; flex-direction:column; gap:12px; margin:26px 0 0; }
+.btn-reihe .btn{ width:100%; }
+
+/* Bewertungszeile */
+.sterne{ color:var(--rot); letter-spacing:2px; }
+.beleg{
+  display:flex; flex-wrap:wrap; align-items:center; gap:6px 12px;
+  font-size:.95rem; color:var(--gedaempft); margin-top:22px;
+}
+.beleg b{ color:var(--tinte); }
+
+/* Karten */
+.karte{
+  background:var(--papier-2); border:1px solid var(--linie);
+  border-radius:var(--radius); padding:26px 24px;
+}
+/* minmax(0,1fr) statt 1fr: sonst sprengen breite Bilder die Spalte
+   und die ganze Seite lässt sich seitlich schieben. */
+.raster{ display:grid; grid-template-columns:minmax(0,1fr); gap:18px; margin-top:34px; }
+
+/* Bildplatzhalter – klar als Platzhalter erkennbar */
+.platzhalter{
+  background:repeating-linear-gradient(45deg,#EFE7DA,#EFE7DA 12px,#E7DDCD 12px,#E7DDCD 24px);
+  border:2px dashed var(--gedaempft);
+  border-radius:var(--radius);
+  aspect-ratio:4/3;
+  display:flex; align-items:center; justify-content:center;
+  padding:18px; text-align:center;
+}
+.platzhalter span{ font-size:.9rem; font-weight:600; color:var(--gedaempft); max-width:26ch; }
+
+/* --- 3. ABSCHNITTE ------------------------------------------------------ */
+
+/* Kopfzeile */
+/* Der ganze Block aus Logo-Zeile und Reitern bleibt oben stehen.
+   >>> REITER SOLLEN MITSCROLLEN STATT STEHENBLEIBEN? <<<
+   Dann die drei Zeilen position/top/z-index hier löschen. */
+.kopfleiste{
+  position:sticky; top:0; z-index:40;
+  background:var(--papier);
+  /* leichter Schatten, sobald Inhalt darunter durchläuft –
+     macht sichtbar, dass die Leiste über der Seite liegt */
+  box-shadow:0 1px 0 var(--linie), 0 6px 14px -10px rgba(43,36,32,.5);
+}
+
+.kopf{
+  background:var(--papier); border-bottom:1px solid var(--linie);
+}
+/* Auf dem Handy bewusst kompakt: die Leiste bleibt dauerhaft stehen und
+   darf deshalb nicht zu viel vom Bildschirm wegnehmen. Am Schreibtisch
+   (ab 760px, weiter unten) wird wieder auf normale Größe gestellt. */
+.kopf .inhalt{ display:flex; align-items:center; gap:14px; padding-top:7px; padding-bottom:7px; }
+/* >>> HIER LOGO-GRÖSSE ÄNDERN <<< (Handy)
+   Nur die Höhe angeben – die Breite ergibt sich von selbst, dadurch
+   kann das Logo nicht verzerren. Größere Werte machen die feste
+   Kopfleiste höher, siehe scroll-padding-top ganz oben. */
+.kopf img{ height:46px; width:auto; }
+.kopf-tel{
+  margin-left:auto; font-weight:700; text-decoration:none; color:var(--tinte);
+  white-space:nowrap; font-size:1rem;
+}
+.kopf-tel:hover{ color:var(--rot); }
+.kopf .btn{ display:none; }
+
+nav.sprung{ border-bottom:1px solid var(--linie); background:var(--papier); }
+nav.sprung ul{
+  display:flex; gap:18px; list-style:none;
+  max-width:var(--breite); margin:0 auto; padding:8px 20px;
+  overflow-x:auto; font-size:.9rem; -webkit-overflow-scrolling:touch;
+  /* Auf dem Handy passen nicht alle Reiter nebeneinander – man schiebt
+     sie seitlich. Die Scrollleiste selbst wird ausgeblendet, weil sie
+     sonst unter den Reitern einen grauen Balken erzeugt. */
+  scrollbar-width:none;
+}
+nav.sprung ul::-webkit-scrollbar{ display:none; }
+nav.sprung a{ color:var(--gedaempft); text-decoration:none; white-space:nowrap; font-weight:600; }
+nav.sprung a:hover{ color:var(--rot); }
+
+/* 1 Header */
+.header{ padding:38px 0 0; }
+.header h1{ font-size:2.35rem; max-width:14ch; }
+.header .lead{ font-size:1.12rem; color:var(--tinte); max-width:46ch; }
+.header-bild{ margin:34px 0 0; }
+.header-bild img{
+  width:100%; height:auto; border-radius:var(--radius); border:1px solid var(--linie);
+}
+.header-bild figcaption{ font-size:.85rem; color:var(--gedaempft); margin-top:8px; }
+
+/* 2 Problem */
+/* --- Dunkle Abschnitte mit echtem Holz im Hintergrund ------------------
+   >>> HIER HOLZFOTO AUSTAUSCHEN ODER ENTFERNEN <<<
+   Grundlage ist ein Foto der Altholzdecke aus dem Ordner "bilder".
+   Darüber liegt ein Schleier in Kaffeebraun, damit die Schrift lesbar
+   bleibt. Berechnet für die hellste anzunehmende Stelle des Fotos:
+   10,4:1 für Fließtext, 5,7:1 für die rote Vorzeile. WCAG AA erfüllt.
+
+   Schleier heller machen  = letzte Zahl (0.88) verkleinern
+   Schleier dunkler machen = letzte Zahl vergrößern
+   Holz ganz entfernen     = die beiden background-image-Zeilen löschen,
+                             background-color bleibt und alles sieht aus
+                             wie vorher.
+   --------------------------------------------------------------------- */
+.holzgrund{
+  background-color:var(--tinte);           /* Rückfall, falls das Foto fehlt */
+  background-image:
+    linear-gradient(rgba(43,36,32,.88), rgba(43,36,32,.88)),
+    url("bilder/moebel08.jpg");
+  background-position:center top;
+  background-size:cover;
+  background-repeat:no-repeat;
+}
+
+/* Hintergrund kommt aus .holzgrund – hier nur noch die Schriftfarbe,
+   sonst würde die Kurzform "background" das Holzfoto wieder löschen. */
+.problem{ color:var(--papier); }
+.problem .vorzeile{ color:var(--rot-licht); }
+.problem h2{ color:#fff; }
+.zitat-kunde{
+  font-size:1.25rem; line-height:1.5; font-style:italic;
+  border-left:3px solid var(--rot-licht); padding-left:20px; margin:0 0 28px;
+  max-width:54ch;
+}
+.folgen{ list-style:none; margin:30px 0 0; padding:0; display:grid; gap:14px; }
+.folgen li{ padding-left:34px; position:relative; font-size:1.05rem; max-width:52ch; }
+.folgen li::before{
+  content:"\00d7"; position:absolute; left:8px; top:-2px;
+  color:var(--rot-licht); font-size:1.5rem; font-weight:700; line-height:1.3;
+}
+
+/* 3 Lösung */
+.loesung .karte h3{ color:var(--rot); }
+.nummer{
+  font-size:.8rem; font-weight:700; letter-spacing:.1em; color:var(--rot);
+  display:block; margin-bottom:10px;
+}
+
+/* 4 Ablauf */
+.ablauf{ background:var(--papier-2); border-top:1px solid var(--linie); border-bottom:1px solid var(--linie); }
+ol.schritte{ list-style:none; counter-reset:s; margin:34px 0 0; padding:0; }
+ol.schritte li{
+  counter-increment:s; position:relative;
+  padding:24px 0 24px 62px; border-top:1px solid var(--linie);
+}
+ol.schritte li:last-child{ border-bottom:1px solid var(--linie); }
+ol.schritte li::before{
+  content:counter(s); position:absolute; left:0; top:24px;
+  width:40px; height:40px; border-radius:50%;
+  background:var(--rot); color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  font-weight:700; font-size:1.05rem;
+}
+ol.schritte h3{ margin-bottom:4px; }
+ol.schritte p{ margin:0; color:var(--gedaempft); max-width:56ch; }
+
+/* 5 Arbeiten */
+.galerie{ display:grid; grid-template-columns:minmax(0,1fr); gap:16px; margin-top:34px; }
+.galerie figure{ margin:0; }
+.galerie img{
+  /* height:auto ist nötig: ohne das gewinnt das height-Attribut im
+     <img>-Tag und die Kachel wird so hoch wie das Originalfoto. */
+  width:100%; height:auto; aspect-ratio:4/3; object-fit:cover;
+  border-radius:var(--radius); border:1px solid var(--linie);
+}
+.galerie figcaption{ font-size:.88rem; color:var(--gedaempft); margin-top:8px; }
+
+/* 6 Stimmen */
+.stimmen{ background:var(--rot-hell); }
+.note{ display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 14px; margin-bottom:6px; }
+.note strong{ font-size:2.6rem; line-height:1; color:var(--rot); }
+blockquote.stimme{
+  margin:0; background:var(--papier-2); border:1px solid var(--linie);
+  border-radius:var(--radius); padding:24px;
+}
+blockquote.stimme p{ font-size:1.02rem; margin:0 0 14px; }
+blockquote.stimme footer{ font-size:.9rem; color:var(--gedaempft); font-weight:600; }
+.auszeichnung{
+  margin-top:26px; padding:20px 22px; background:var(--papier-2);
+  border-left:4px solid var(--rot); border-radius:var(--radius); font-size:.98rem;
+}
+
+/* 7 Über uns */
+/* Portraitfoto Martin */
+.portrait{
+  /* height:auto ist nötig, sonst gewinnt das height-Attribut im <img>-Tag
+     und das Foto wird auf voller Originalhöhe angezeigt. */
+  width:100%; height:auto; max-width:340px;
+  aspect-ratio:3/4; object-fit:cover; object-position:top center;
+  border-radius:var(--radius); border:1px solid var(--linie);
+  background:var(--papier-2);
+}
+
+/* 7b Partner – heller Grund, damit sich der Abschnitt von "Über uns"
+   und den Fragen darunter absetzt. */
+.partner{
+  background:var(--papier-2);
+  border-top:1px solid var(--linie); border-bottom:1px solid var(--linie);
+}
+
+/* Partnerlogos – Grauwerte, damit die Seite nicht bunt wird.
+   Beim Draufzeigen erscheint das Logo in Originalfarbe. */
+.logos{
+  display:grid; grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px; margin-top:30px; padding:0; list-style:none;
+}
+.logos li{
+  /* warmes Off-White, damit sich die Kacheln vom weißen Abschnitt abheben */
+  background:var(--papier); border:1px solid var(--linie);
+  border-radius:var(--radius);
+  display:flex; align-items:center; justify-content:center;
+  padding:14px; min-height:104px;
+}
+/* >>> HIER LOGO-GRÖSSE IN DEN KACHELN ÄNDERN <<<
+   Zwei Grenzen, weil die Logos sehr unterschiedliche Formate haben:
+   Der Kreis ist fast quadratisch, Schlotterer ist siebenmal so breit
+   wie hoch. Ohne die Breitenbegrenzung würden die breiten Logos die
+   Kachel sprengen, ohne die Höhenbegrenzung blieben die quadratischen
+   winzig. Beide Werte gemeinsam größer machen, dann wachsen alle mit. */
+.logos img{
+  max-height:64px; max-width:158px;
+  width:auto; height:auto;
+  object-fit:contain;
+  filter:grayscale(1); opacity:.85;
+  transition:filter .15s ease, opacity .15s ease;
+}
+.logos li:hover img{ filter:none; opacity:1; }
+@media (prefers-reduced-motion:reduce){ .logos img{ transition:none; } }
+
+.ueber .team{
+  margin-top:24px; padding:20px 22px; background:var(--papier-2);
+  border:1px solid var(--linie); border-radius:var(--radius);
+}
+.ueber .team p{ margin:0; }
+
+/* 8 Fragen */
+details.frage{ border-top:1px solid var(--linie); }
+details.frage:last-of-type{ border-bottom:1px solid var(--linie); }
+details.frage summary{
+  cursor:pointer; list-style:none; padding:20px 34px 20px 0; position:relative;
+  font-weight:600; font-size:1.06rem;
+}
+details.frage summary::-webkit-details-marker{ display:none; }
+details.frage summary::after{
+  content:"+"; position:absolute; right:4px; top:16px;
+  font-size:1.6rem; font-weight:400; color:var(--rot); line-height:1;
+}
+details.frage[open] summary::after{ content:"\2013"; }
+details.frage p{ margin:0 0 20px; color:var(--gedaempft); max-width:60ch; }
+
+/* 9 Küchen-Checkliste
+   Heller Grund mit Linien oben und unten – derselbe Trick wie beim
+   Ablauf-Abschnitt, damit sich der Kasten vom Abschnitt davor abhebt. */
+.checkliste{
+  background:var(--papier-2);
+  border-top:1px solid var(--linie); border-bottom:1px solid var(--linie);
+}
+.checkliste ul{ list-style:none; margin:26px 0 0; padding:0; display:grid; gap:12px; }
+.checkliste ul li{ padding-left:30px; position:relative; color:var(--gedaempft); max-width:52ch; }
+.checkliste ul li::before{
+  content:"\2713"; position:absolute; left:0; top:0;
+  color:var(--rot); font-weight:700;
+}
+.checkliste .karte{ background:var(--papier); margin-top:32px; }
+.checkliste .karte h3{ margin:0 0 8px; color:var(--rot); }
+.checkliste .karte p{ color:var(--gedaempft); font-size:.98rem; }
+/* Das Formular sitzt schon in einer Karte – deshalb hier ohne eigenen
+   Hintergrund und ohne zusätzlichen Innenabstand. */
+.checkliste .formular{ background:transparent; padding:0; margin-top:22px; }
+.datenschutz-hinweis{ font-size:.88rem; color:var(--gedaempft); margin:14px 0 0; max-width:52ch; }
+.datenschutz-hinweis a{ color:var(--rot); font-weight:600; }
+
+/* 10 Kontakt */
+/* Hintergrund kommt aus .holzgrund – siehe Hinweis weiter oben. */
+.kontakt{ color:var(--papier); }
+.kontakt h2{ color:#fff; }
+.kontakt .vorzeile{ color:var(--rot-licht); }
+.kontakt .lead{ color:#E4DCD2; }
+.formular{
+  background:var(--papier); color:var(--tinte);
+  border-radius:var(--radius); padding:26px 22px; margin-top:30px;
+}
+.feld{ margin-bottom:18px; }
+.feld label{ display:block; font-weight:600; margin-bottom:6px; font-size:.98rem; }
+.feld .hinweis{ font-weight:400; color:var(--gedaempft); font-size:.88rem; }
+.feld input,.feld textarea,.feld select{
+  width:100%; font:inherit; font-size:1rem; color:var(--tinte);
+  padding:14px; background:#fff;
+  border:1px solid var(--gedaempft); border-radius:var(--radius);
+}
+.feld textarea{ min-height:110px; resize:vertical; }
+.fehler{ color:var(--rot); font-weight:600; font-size:.92rem; margin-top:6px; display:none; }
+.feld.ist-fehler input,.feld.ist-fehler textarea{ border-color:var(--rot); border-width:2px; }
+.feld.ist-fehler .fehler{ display:block; }
+.status{
+  margin-top:16px; padding:14px 16px; border-radius:var(--radius);
+  background:var(--rot-hell); border-left:4px solid var(--rot);
+  font-size:.96rem; display:none;
+}
+.status.sichtbar{ display:block; }
+.kontakt-direkt{ margin-top:30px; font-size:1.02rem; }
+.kontakt-direkt a{ color:var(--rot-licht); font-weight:700; }
+.kontakt-direkt dl{ display:grid; grid-template-columns:auto 1fr; gap:6px 16px; margin:14px 0 0; }
+.kontakt-direkt dt{ color:#C9BEB2; }
+.kontakt-direkt dd{ margin:0; }
+
+/* Fußzeile */
+footer.fuss{ background:var(--papier); border-top:1px solid var(--linie); padding:40px 0 30px; font-size:.94rem; }
+footer.fuss .spalten{ display:grid; grid-template-columns:minmax(0,1fr); gap:26px; }
+footer.fuss h3{ font-size:.82rem; text-transform:uppercase; letter-spacing:.1em; color:var(--gedaempft); }
+footer.fuss a{ color:var(--tinte); }
+footer.fuss .klein{ margin-top:30px; padding-top:18px; border-top:1px solid var(--linie); color:var(--gedaempft); font-size:.86rem; }
+
+/* Impressum und Datenschutz – aufklappbar, damit sie die Fußzeile
+   nicht zumauern, aber trotzdem auf der Seite selbst stehen. */
+.rechtstexte{ margin-top:30px; padding-top:22px; border-top:1px solid var(--linie); }
+.rechtstexte summary{
+  cursor:pointer; font-weight:700; color:var(--tinte);
+  padding:10px 0; font-size:.95rem; list-style:none;
+}
+.rechtstexte summary::-webkit-details-marker{ display:none; }
+.rechtstexte summary::after{ content:"\002B"; float:right; color:var(--rot); font-weight:700; }
+.rechtstexte details[open] summary::after{ content:"\2013"; }
+.rechtstexte p{
+  margin:0 0 12px; color:var(--gedaempft);
+  font-size:.88rem; line-height:1.55; max-width:70ch;
+}
+.rechtstexte details{ border-bottom:1px solid var(--linie); }
+.rechtstexte details[open]{ padding-bottom:10px; }
+
+/* Feste Leiste unten – nur Handy, im Daumenbereich */
+.daumenleiste{
+  position:fixed; left:0; right:0; bottom:0; z-index:50;
+  display:flex; gap:10px; padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+  background:var(--papier); border-top:1px solid var(--linie);
+  box-shadow:0 -4px 14px rgba(43,36,32,.10);
+}
+.daumenleiste .btn{ flex:1; min-height:52px; padding:12px 10px; font-size:.98rem; }
+.daumenleiste .btn--zweit{ background:var(--papier); }
+
+/* --- 4. AB TABLET / DESKTOP -------------------------------------------- */
+@media (min-width:760px){
+  body{ padding-bottom:0; }
+  .daumenleiste{ display:none; }
+  section{ padding:80px 0; }
+  h1{ font-size:3rem; }
+  h2{ font-size:2.1rem; }
+  .header{ padding:60px 0 0; }
+  .header h1{ font-size:3.4rem; }
+  .header .lead{ font-size:1.2rem; }
+  .btn-reihe{ flex-direction:row; }
+  .btn-reihe .btn{ width:auto; }
+  .kopf .btn{ display:inline-flex; min-height:46px; padding:10px 18px; font-size:.95rem; margin-left:16px; }
+  /* Am Schreibtisch ist Platz genug für die volle Größe */
+  .kopf .inhalt{ padding-top:10px; padding-bottom:10px; }
+  /* >>> HIER LOGO-GRÖSSE ÄNDERN <<< (Schreibtisch) */
+  .kopf img{ height:64px; }
+  nav.sprung ul{ gap:22px; padding:11px 20px; font-size:.94rem; }
+  html{ scroll-padding-top:146px; }
+  .raster--3{ grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; }
+  .raster--2{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; }
+  .galerie{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .logos{ grid-template-columns:repeat(5,minmax(0,1fr)); gap:16px; }
+  .header-inner{ display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); gap:48px; align-items:center; }
+  .header-bild{ margin:0; }
+  .formular{ padding:34px 32px; }
+  .formular .zeile{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+  /* Text links, Kasten rechts – nebeneinander erst ab Tablet. */
+  .checkliste-inner{ display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:48px; align-items:start; }
+  .checkliste .karte{ margin-top:0; padding:30px 28px; }
+  .kontakt-inner{ display:grid; grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr); gap:48px; align-items:start; }
+  footer.fuss .spalten{ grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr); gap:40px; }
+  .zitat-kunde{ font-size:1.45rem; }
+}
+@media (min-width:1000px){
+  .stimmen .raster{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+
+/* Druck */
+@media print{ .daumenleiste,nav.sprung,.kopf .btn{ display:none; } }
+</style>
+</head>
+
+<body>
+<a class="skip" href="#hauptteil">Zum Inhalt springen</a>
+
+<!-- ====================================================================
+     KOPFZEILE
+     >>> HIER TELEFONNUMMER ÄNDERN <<<
+     Die Nummer steht insgesamt an fünf Stellen: hier, im Header,
+     im Kontaktabschnitt, in der Fußzeile und in der Leiste am Seitenende.
+     ==================================================================== -->
+<!-- ======================================================================
+     KOPFLEISTE
+     Logo-Zeile und Abschnitts-Reiter stecken zusammen in einem Block,
+     der beim Scrollen oben stehen bleibt (position:sticky).
+     Beide zusammen zu fassen ist wichtig: sonst müsste man die Höhe der
+     Logo-Zeile von Hand ausrechnen, und bei jeder Schriftgrößen-Änderung
+     würde ein Spalt oder eine Überlappung entstehen.
+     ====================================================================== -->
+<div class="kopfleiste">
+<header class="kopf">
+  <div class="inhalt">
+    <img src="bilder/logo-schmez.png" alt="Tischlerei Schmez – alles gemeinsam">
+    <a class="kopf-tel" href="tel:+43613620022">06136 200 22</a>
+    <a class="btn" href="#termin">Beratungsgespräch</a>
+  </div>
+</header>
+
+<nav class="sprung" aria-label="Abschnitte dieser Seite">
+  <ul>
+    <li><a href="#problem">Das Problem</a></li>
+    <li><a href="#loesung">Unsere Lösung</a></li>
+    <li><a href="#ablauf">Ablauf</a></li>
+    <li><a href="#arbeiten">Arbeiten</a></li>
+    <li><a href="#stimmen">Kundenstimmen</a></li>
+    <li><a href="#ueber-uns">Über uns</a></li>
+    <li><a href="#fragen">Fragen</a></li>
+    <li><a href="#checkliste">Checkliste</a></li>
+    <li><a href="#termin">Kontakt</a></li>
+  </ul>
+</nav>
+</div><!-- Ende Kopfleiste -->
+
+<main id="hauptteil">
+
+<!-- ====================================================================
+     1 · HEADER  –  beantwortet in drei Sekunden: was, für wen, was tun
+     >>> HIER DIE HAUPTAUSSAGE ÄNDERN <<<
+     ==================================================================== -->
+<section class="header">
+  <div class="inhalt header-inner">
+    <div>
+      <p class="vorzeile">Küchen aus Gosau · fürs ganze Salzkammergut</p>
+      <h1>Nicht organisieren. Nur noch einziehen.</h1>
+      <p class="lead">
+        Wir planen und bauen deine Küche – und kümmern uns um alles drumherum.
+        Maurer, Installateur, Elektriker, Maler: Du hast einen Ansprechpartner
+        statt fünf Baustellen.
+      </p>
+
+      <div class="btn-reihe">
+        <a class="btn" href="#termin">Vereinbare dein Beratungsgespräch</a>
+        <a class="btn btn--zweit" href="tel:+43613620022">Oder ruf an: 06136 200 22</a>
+      </div>
+
+      <!-- Bewertungszahlen von ProvenExpert -->
+      <p class="beleg">
+        <span class="sterne" aria-hidden="true">★★★★★</span>
+        <b>4,96 von 5</b> aus <b>66 Bewertungen</b> auf ProvenExpert
+      </p>
+    </div>
+
+    <figure class="header-bild">
+      <img src="bilder/header-01.jpg" width="1200" height="900"
+           alt="Küche mit dunklen Fronten, heller Steinarbeitsplatte und sichtbarem Holzbalken an der Decke">
+      <figcaption>Küche mit Holzbalken und Steinarbeitsplatte – von uns geplant, gebaut und montiert.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ====================================================================
+     2 · PROBLEM UND AUSWIRKUNG (dunkler Abschnitt)
+     Das Zitat steht wörtlich so im Kunden-Briefing. Bitte nicht glätten –
+     genau diese Sprache erkennt die Zielgruppe wieder.
+     ==================================================================== -->
+<section class="problem holzgrund" id="problem">
+  <div class="inhalt">
+    <p class="vorzeile">Kennst du das?</p>
+    <h2 class="abschnitt-titel">Du willst eine neue Küche. Keine Baustelle.</h2>
+
+    <blockquote class="zitat-kunde">
+      „Die alte Küche hat uns 25 Jahre lang für die Kinder gedient – jetzt will
+      ich endlich eine, die zu uns passt, und ich hab keine Nerven mehr, mich
+      mit fünf verschiedenen Handwerkern rumzuschlagen.“
+    </blockquote>
+
+    <ul class="folgen">
+      <li>Fünf Firmen, fünf Terminkalender – und keiner davon ist deiner.</li>
+      <li>Der Elektriker wartet auf den Maurer. Der Maler auf den Fliesenleger.</li>
+      <li>Ihr kocht seit Wochen auf der Kochplatte im Wohnzimmer.</li>
+      <li>Und läuft etwas schief, sagt jeder: „Dafür bin ich nicht zuständig.“</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ====================================================================
+     3 · LÖSUNG
+     ==================================================================== -->
+<section class="loesung" id="loesung">
+  <div class="inhalt">
+    <p class="vorzeile">So machen wir das</p>
+    <h2 class="abschnitt-titel">Ein Ansprechpartner statt fünf Baustellen.</h2>
+    <p class="lead">
+      Wir verkaufen dir keine Küche und lassen dich dann mit dem Rest allein.
+      Wir nehmen dir das ganze Projekt ab – vom ersten Gespräch bis zu dem Tag,
+      an dem du zum ersten Mal darin kochst.
+    </p>
+
+    <div class="raster raster--3">
+      <div class="karte">
+        <span class="nummer">01</span>
+        <h3>Wir hören zuerst zu</h3>
+        <p>Bevor irgendjemand etwas plant, reden wir. Wie kocht ihr wirklich?
+        Wer steht wo? Was hat euch an der alten Küche jeden Tag geärgert?
+        Daraus wird die Planung – nicht aus einem Katalog.</p>
+      </div>
+      <div class="karte">
+        <span class="nummer">02</span>
+        <h3>Wir holen die anderen Gewerke</h3>
+        <p>Maurer, Installateur, Elektriker, Maler: Wir stimmen die Termine ab,
+        sagen jedem, was er wann braucht, und sind dabei, wenn gearbeitet wird.
+        Du musst niemanden anrufen.</p>
+      </div>
+      <div class="karte">
+        <span class="nummer">03</span>
+        <h3>Und dann geht es schnell</h3>
+        <p>Die Montage selbst dauert drei bis vier Tage – weil vorher alles
+        vorbereitet ist. Danach ist Übergabe: sauber, aufgeräumt, fertig.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     4 · ABLAUF
+     >>> HIER DIE MONTAGEZEIT ÄNDERN (aktuell: drei bis vier Tage) <<<
+     ==================================================================== -->
+<section class="ablauf" id="ablauf">
+  <div class="inhalt">
+    <p class="vorzeile">Ablauf</p>
+    <h2 class="abschnitt-titel">Was auf dich zukommt – in vier Schritten.</h2>
+    <p class="lead">Damit du weißt, worauf du dich einlässt, bevor du anrufst.</p>
+
+    <ol class="schritte">
+      <li>
+        <h3>Wir schauen uns die Küche an</h3>
+        <p>Am liebsten dort, wo sie hinkommt. Wir nehmen Maß, hören zu und
+        klären, was baulich geht und was nicht.</p>
+      </li>
+      <li>
+        <h3>Du siehst deine Küche, bevor es sie gibt</h3>
+        <p>Maßstabsgetreue Planzeichnungen und 3D-Ansichten. So lange, bis es
+        passt – Änderungen in der Planung kosten nichts außer Zeit.</p>
+      </li>
+      <li>
+        <h3>Wir übernehmen die Koordination</h3>
+        <p>Wir holen die anderen Gewerke, legen die Reihenfolge fest und sind
+        auf der Baustelle. Du bekommst einen Termin, keine Telefonliste.</p>
+      </li>
+      <li>
+        <h3>Montage in drei bis vier Tagen</h3>
+        <p>Sauber und staubarm gearbeitet, danach gemeinsame Übergabe. Und wenn
+        später noch etwas ist: Wir gehen ans Telefon.</p>
+      </li>
+    </ol>
+
+    <div class="btn-reihe">
+      <a class="btn" href="#termin">Vereinbare dein Beratungsgespräch</a>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     5 · ARBEITEN
+     >>> HIER FOTOS AUSTAUSCHEN <<<
+     Die drei echten Fotos liegen im Ordner "bilder".
+     Die gestrichelten Kästen sind Platzhalter: ersetze den ganzen
+     <div class="platzhalter">…</div> durch
+     <img src="bilder/dateiname.jpg" alt="Beschreibung des Fotos">
+     ==================================================================== -->
+<section id="arbeiten">
+  <div class="inhalt">
+    <p class="vorzeile">Unsere Arbeiten</p>
+    <h2 class="abschnitt-titel">Küchen, in denen seit Jahren jeden Tag gekocht wird.</h2>
+
+    <div class="galerie">
+      <figure>
+        <img src="bilder/header-02.jpg" width="1100" height="825"
+             alt="Helle Landhausküche mit Kochinsel und dunkler Natursteinarbeitsplatte">
+        <figcaption>Landhausküche mit Kochinsel</figcaption>
+      </figure>
+      <figure>
+        <img src="bilder/kuechen01.jpg" width="1200" height="940" loading="lazy"
+             alt="Küche aus Altholz mit anthrazitfarbenen Hochschränken, dunkler Arbeitsplatte, Deckenbalken und einer Natursteinwand">
+        <figcaption>Altholz und Anthrazit – geplant um Balken und Steinwand herum</figcaption>
+      </figure>
+      <figure>
+        <img src="bilder/kuechen02.jpg" width="1100" height="825" loading="lazy"
+             alt="Helle Küche in Eiche und Creme mit dunkler Granitarbeitsplatte, davor ein Fenster mit Blick auf bewaldete Berge">
+        <figcaption>Eiche und Creme, mit dem Fenster als bestem Platz der Küche</figcaption>
+      </figure>
+
+      <figure>
+        <img src="bilder/kuechen_header.jpg" width="1700" height="977" loading="lazy"
+             alt="Küchenzeile in Altholz mit anthrazitfarbenen Hochschränken, Granitarbeitsplatte und eingebautem Backofen">
+        <figcaption>Dieselbe Handschrift, anderer Grundriss: Altholz vor Anthrazit</figcaption>
+      </figure>
+      <figure>
+        <img src="bilder/moebel05.jpg" width="1100" height="825" loading="lazy"
+             alt="Bad unter der Dachschräge mit freistehender Badewanne, Waschtisch aus Eiche mit zwei Aufsatzbecken und einem sichtbaren Holzbalken">
+        <figcaption>Nicht nur Küchen: Bad unter der Dachschräge, komplett geplant</figcaption>
+      </figure>
+      <figure>
+        <img src="bilder/moebel09.jpg" width="1200" height="900" loading="lazy"
+             alt="Schlafzimmer in hellem Zirbenholz mit Wandverkleidung, Holzdecke, Einbauschrank und Waschtisch">
+        <figcaption>Schlafzimmer in Zirbe – Wand, Decke und Schrank aus einer Hand</figcaption>
+      </figure>
+
+      <!-- >>> DIESE ZWEI FOTOS FEHLEN NOCH – SIE WÄREN DIE STÄRKSTEN <<<
+           Sobald du sie hast, den Kommentar unten entfernen und die
+           Dateien in den Ordner "bilder" legen. Ein Handyfoto genügt.
+
+           1) Vorher und Nachher: alte und neue Küche im selben Raum.
+              Das überzeugt mehr als jedes andere Bild auf dieser Seite.
+           2) Montage: das Team bei der Arbeit beim Kunden.
+              Beweist, dass echte Menschen ins Haus kommen.
+
+      <figure>
+        <img src="bilder/vorher-nachher.jpg" width="1200" height="900" loading="lazy"
+             alt="Dieselbe Küche vor und nach dem Umbau">
+        <figcaption>Aus der alten Küche von 1998 wurde das hier – im selben Raum.</figcaption>
+      </figure>
+      <figure>
+        <img src="bilder/montage.jpg" width="1200" height="900" loading="lazy"
+             alt="Zwei Mitarbeiter der Tischlerei Schmez bei der Montage einer Küche">
+        <figcaption>Montagetag in Bad Goisern – Andi und Daniel beim Einpassen.</figcaption>
+      </figure>
+      -->
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     6 · KUNDENSTIMMEN
+     Alle Zitate stehen im Wortlaut so auf ProvenExpert. Bitte nicht
+     umformulieren – sonst sind es keine Bewertungen mehr.
+     >>> HIER WEITERE BEWERTUNGEN EINFÜGEN <<<
+     ==================================================================== -->
+<section class="stimmen" id="stimmen">
+  <div class="inhalt">
+    <p class="vorzeile">Was Kunden sagen</p>
+    <div class="note">
+      <strong>4,96</strong>
+      <span class="sterne" aria-hidden="true">★★★★★</span>
+      <span>von 5 – aus 66 Bewertungen auf ProvenExpert</span>
+    </div>
+    <p class="lead">Nicht von uns geschrieben. Nachlesbar, mit Namen.</p>
+
+    <div class="raster raster--2">
+      <blockquote class="stimme">
+        <p>„TOP Beratung, tadellose Ausführung und Baustellenbegleitung bis zum
+        Übergabetermin. Allem in Allem ein sehr gutes Unternehmen wo man sich
+        super gut aufgehoben fühlt.“</p>
+        <footer>Uwe H. · 5 von 5</footer>
+      </blockquote>
+
+      <blockquote class="stimme">
+        <p>„Terminverlässlichkeit, sehr professionelle und rasche Arbeit der
+        Monteure, sehr gutes Preis-Leistungsverhältnis, wir sind rundum
+        zufrieden.“</p>
+        <footer>Karlheinz U. · 5 von 5</footer>
+      </blockquote>
+
+      <blockquote class="stimme">
+        <p>„Beantwortet alle Anfragen. Kümmert sich auch um kleine Wünsche.
+        Hat sehr freundliche und hilfsbereite Mitarbeiter. Ruft immer zurück.“</p>
+        <footer>E. Zeidler · 5 von 5</footer>
+      </blockquote>
+
+      <blockquote class="stimme">
+        <p>„Kompetente Beratung und Umsetzung von Wünschen. Schnelle Hilfe wenn
+        man sie braucht. Kein aufdringlicher Verkauf.“</p>
+        <footer>Bernadette P. · 5 von 5</footer>
+      </blockquote>
+    </div>
+
+    <p class="auszeichnung">
+      <strong>2023 ausgezeichnet als wertschätzender Arbeitgeber.</strong>
+      Wer seine Leute gut behandelt, schickt dir auch die Richtigen ins Haus.
+    </p>
+
+    <div class="btn-reihe">
+      <a class="btn" href="#termin">Vereinbare dein Beratungsgespräch</a>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     7 · ÜBER UNS
+     >>> HIER TEXT ÄNDERN <<<
+     ==================================================================== -->
+<section class="ueber" id="ueber-uns">
+  <div class="inhalt">
+    <p class="vorzeile">Wer das macht</p>
+    <h2 class="abschnitt-titel">Martin Schwaighofer, Tischlermeister.</h2>
+
+    <div class="raster raster--2">
+      <div>
+        <p>Angefangen hat er als Tischlerlehrling in Gosau. Danach ging es
+        hinaus: Hamburg, Kiel, Neuseeland, San Francisco. Und irgendwann wieder
+        zurück ins Gosautal – mit dem Wunsch, es selbst zu machen.</p>
+
+        <p>Gedacht war das als Ein-Mann-Betrieb. Es kamen mehr Aufträge, als
+        einer schaffen konnte. Heute sind wir ein junges Team aus Gosau, das
+        Küchen, Möbel und Bäder baut – und dabei den ganzen Umbau mitdenkt,
+        nicht nur das Möbelstück.</p>
+
+        <p><strong>Was uns wichtig ist:</strong> ehrlich sagen, was geht und was
+        nicht. Handschlagqualität statt Kleingedrucktem. Und Holz behandeln wie
+        das, was es ist – ein lebendiger Werkstoff, aus dem Lebensräume werden.</p>
+      </div>
+
+      <div>
+        <!-- >>> FOTO AUSTAUSCHEN <<< Portrait von schmez.at übernommen.
+             Ein Foto in der Werkstatt oder auf der Baustelle wäre stärker,
+             weil es das Handwerk zeigt. Dann hier den Dateinamen ändern. -->
+        <img class="portrait" src="bilder/martin-schwaighofer.jpg"
+             width="821" height="1201" loading="lazy"
+             alt="Martin Schwaighofer, Tischlermeister und Inhaber der Tischlerei Schmez">
+        <div class="team">
+          <p><strong>Das Team:</strong> Martin und Heike, Andi, Daniel, Paul und
+          Kevin – und Martina im Büro, die zurückruft, wenn du anrufst.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     7b · PARTNER UND MARKEN
+     >>> HIER LOGOS ERGÄNZEN ODER ENTFERNEN <<<
+     Die Logos liegen in "bilder/partner". Ein neues Logo: einfach ein
+     weiteres <li> mit <img> einfügen. Sie werden grau dargestellt, damit
+     die Seite nicht bunt wird, und erscheinen beim Draufzeigen in Farbe.
+     ==================================================================== -->
+<section class="partner" id="partner">
+  <div class="inhalt">
+    <p class="vorzeile">Womit wir arbeiten</p>
+    <h2 class="abschnitt-titel">Was wir nicht selbst bauen, kaufen wir dort, wo es hält.</h2>
+    <p class="lead">
+      Geräte, Beschattung, Fenster, Türen, Böden: Was nicht aus unserer
+      Werkstatt kommt, kommt von Herstellern, bei denen wir wissen, wen wir
+      anrufen – auch dann noch, wenn später einmal etwas ist.
+    </p>
+
+    <ul class="logos">
+      <li><img src="bilder/partner/haecker.png" width="1197" height="380" loading="lazy" alt="Häcker Küchen"></li>
+      <li><img src="bilder/partner/dan-kuechen.png" width="300" height="61" loading="lazy" alt="DAN Küchen"></li>
+      <li><img src="bilder/partner/miele.png" width="648" height="250" loading="lazy" alt="Miele"></li>
+      <li><img src="bilder/partner/bosch.png" width="1176" height="262" loading="lazy" alt="Bosch"></li>
+      <li><img src="bilder/partner/blanco.png" width="2190" height="400" loading="lazy" alt="Blanco"></li>
+      <li><img src="bilder/partner/katzbeck.png" width="233" height="180" loading="lazy" alt="Katzbeck Fenster"></li>
+      <li><img src="bilder/partner/schlotterer.png" width="600" height="79" loading="lazy" alt="Schlotterer Sonnenschutz"></li>
+      <li><img src="bilder/partner/koch-tueren.png" width="396" height="146" loading="lazy" alt="Koch Türen"></li>
+      <li><img src="bilder/partner/barfuss-boden.png" width="267" height="117" loading="lazy" alt="Barfuß Boden"></li>
+      <li><img src="bilder/partner/der-kreis.png" width="183" height="211" loading="lazy" alt="Der Kreis"></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ====================================================================
+     8 · HÄUFIGE FRAGEN
+     >>> HIER ANTWORTEN ÄNDERN <<<
+     Zum Preis steht bewusst keine Zahl auf der Seite. Wenn später doch
+     eine Größenordnung genannt werden soll, gehört sie in die Antwort
+     „Was kostet eine Küche bei euch?“.
+     ==================================================================== -->
+<section id="fragen">
+  <div class="inhalt">
+    <p class="vorzeile">Kurz gefragt</p>
+    <h2 class="abschnitt-titel">Das wollen die meisten vorher wissen.</h2>
+
+    <div style="margin-top:34px">
+      <details class="frage">
+        <summary>Wie lange haben wir keine Küche?</summary>
+        <p>Die Montage selbst dauert drei bis vier Tage. Wie lange die Phase
+        davor dauert, hängt davon ab, was baulich passiert – das sagen wir dir
+        nach dem ersten Termin verbindlich, nicht geschätzt.</p>
+      </details>
+
+      <details class="frage">
+        <summary>Müssen wir die anderen Handwerker selbst suchen?</summary>
+        <p>Nein. Genau das ist unser Punkt. Maurer, Installateur, Elektriker und
+        Maler koordinieren wir. Du kannst auch deine eigenen Leute behalten –
+        dann stimmen wir uns mit denen ab.</p>
+      </details>
+
+      <details class="frage">
+        <summary>Wo arbeitet ihr?</summary>
+        <p>Rund ums Salzkammergut, unser Sitz ist in Gosau. Wenn du unsicher
+        bist, ob du noch im Gebiet liegst: ruf einfach an, dann wissen wir es
+        in einer Minute.</p>
+      </details>
+
+      <details class="frage">
+        <summary>Was kostet eine Küche bei euch?</summary>
+        <p>Das kommt darauf an, was du willst – und wir raten hier keine Zahl
+        ins Blaue. Nach dem ersten Gespräch bekommst du ein Angebot, in dem
+        alles steht: Küche, Montage und die Arbeiten drumherum. Ohne Posten,
+        die später noch dazukommen.</p>
+      </details>
+
+      <details class="frage">
+        <summary>Was passiert beim Beratungsgespräch?</summary>
+        <p>Wir reden. Über eure Küche, euren Alltag, euren Zeitplan. Kein
+        Verkaufsgespräch – eine Kundin hat das mal so beschrieben:
+        „Kein aufdringlicher Verkauf.“ Genau so halten wir es.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+     9 · KÜCHEN-CHECKLISTE – der kleine Schritt für alle, die noch nicht
+     gleich anrufen wollen. Abgefragt wird bewusst nur die E-Mail-Adresse.
+
+     >>> HIER EMPFÄNGER-ADRESSE ÄNDERN <<<
+     Sie steht genau einmal, im action des Formulars weiter unten:
+     action="https://formsubmit.co/office@schmez.at"
+
+     >>> HIER LINK ZUR CHECKLISTE ÄNDERN <<<
+     Auch genau einmal: im Text der automatischen Antwortmail, im
+     versteckten Feld _autoresponse. Dort muss die Adresse der fertigen
+     PDF-Datei stehen, sonst bekommt der Besucher einen toten Link.
+
+     WIE DER VERSAND LÄUFT: FormSubmit (formsubmit.co) nimmt das Formular
+     entgegen, schickt den Eintrag als E-Mail an die Adresse oben und dem
+     Besucher automatisch die Antwortmail mit dem Link. Kein Konto, kein
+     eigener Server, kostenlos. Beim allerersten Absenden schickt
+     FormSubmit eine Bestätigungsmail an office@schmez.at – erst nach dem
+     Klick darauf kommen die Einträge tatsächlich an.
+     ==================================================================== -->
+<section class="checkliste" id="checkliste">
+  <div class="inhalt checkliste-inner">
+    <div>
+      <p class="vorzeile">Gratis, ohne Gegenleistung</p>
+      <h2 class="abschnitt-titel">Die Küchen-Checkliste: 12 Fragen vor der
+      Planung.</h2>
+      <p class="lead">Noch nicht so weit für ein Gespräch? Dann nimm die Fragen
+      mit, die wir im Beratungstermin ohnehin stellen. Zwei Seiten zum
+      Ausdrucken – in Ruhe zu Hause durchgehen, bevor du dich irgendwo
+      festlegst.</p>
+
+      <ul>
+        <li>Woran Küchenplanungen in der Sanierung am häufigsten scheitern.</li>
+        <li>Welche Maße und Anschlüsse du vorher wissen solltest.</li>
+        <li>Was in einem Angebot stehen muss, damit später nichts dazukommt.</li>
+      </ul>
+    </div>
+
+    <div class="karte">
+      <h3>Checkliste anfordern</h3>
+      <p>Eine Zeile ausfüllen, fertig. Mehr als deine E-Mail-Adresse brauchen
+      wir dafür nicht.</p>
+
+      <!-- novalidate: die Fehlermeldung kommt weiter unten aus dem Skript,
+           in derselben Sprache und Optik wie beim Anfrageformular. -->
+      <form class="formular" id="checkliste-formular" method="POST" novalidate
+            action="https://formsubmit.co/office@schmez.at">
+
+        <div class="feld">
+          <label for="ck-email">Deine E-Mail-Adresse</label>
+          <input id="ck-email" name="email" type="email" autocomplete="email"
+                 placeholder="name@beispiel.at" required
+                 aria-describedby="ck-fehler ck-datenschutz">
+          <p class="fehler" id="ck-fehler">Bitte trag eine gültige
+          E-Mail-Adresse ein – sonst können wir dir die Checkliste nicht
+          schicken.</p>
+        </div>
+
+        <!-- Einstellungen für FormSubmit. Der Besucher sieht davon nichts. -->
+        <input type="hidden" name="_subject"
+               value="Küchen-Checkliste angefordert">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <!-- >>> HIER LINK ZUR CHECKLISTE ÄNDERN <<< (die einzige Stelle) -->
+        <input type="hidden" name="_autoresponse"
+               value="Danke für dein Interesse! Hier ist deine Küchen-Checkliste mit den 12 Fragen vor der Planung: https://www.schmez.at/kuechen-checkliste.pdf – Wenn du dazu etwas fragen willst, antworte einfach auf diese E-Mail oder ruf an: 06136 200 22. Herzliche Grüße, TISCHLEREI SCHMEZ GmbH, Austraße 22, 4824 Gosau">
+        <!-- Honigtopf gegen Werbe-Roboter: Menschen sehen das Feld nicht,
+             Roboter füllen es aus – dann wirft FormSubmit den Eintrag weg. -->
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off"
+               aria-hidden="true" style="display:none">
+
+        <button class="btn" id="ck-knopf" type="submit" style="width:100%">
+          Checkliste per E-Mail bekommen
+        </button>
+
+        <p class="datenschutz-hinweis" id="ck-datenschutz">
+          Wir speichern nur deine E-Mail-Adresse und verwenden sie
+          ausschließlich, um dir die Checkliste zu schicken – kein Newsletter,
+          keine Werbung, keine Weitergabe. Der Versand läuft über den
+          Formulardienst FormSubmit. Näheres im
+          <a href="#datenschutz">Datenschutz</a>.
+        </p>
+
+        <!-- Rückmeldung an den Besucher: Sichtbarkeit des Systemstatus -->
+        <p class="status" id="ck-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================
+    10 · TERMIN UND KONTAKT – die wichtigste Stelle der Seite
+     >>> HIER EMPFÄNGER-ADRESSE ÄNDERN <<<
+     Sie steht unten im Skript in der Zeile: var EMPFAENGER = "..."
+     ==================================================================== -->
+<section class="kontakt holzgrund" id="termin">
+  <div class="inhalt kontakt-inner">
+    <div>
+      <p class="vorzeile">Der nächste Schritt</p>
+      <h2>Vereinbare dein Beratungsgespräch</h2>
+      <p class="lead">
+        Schreib uns kurz, worum es geht. Wir melden uns innerhalb von zwei
+        Werktagen und machen einen Termin aus – unverbindlich und ohne
+        Verkaufsgespräch.
+      </p>
+
+      <form class="formular" id="anfrage" novalidate>
+        <div class="zeile">
+          <div class="feld">
+            <label for="f-name">Dein Name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name"
+                   required aria-describedby="fehler-name">
+            <p class="fehler" id="fehler-name">Bitte trag deinen Namen ein.</p>
+          </div>
+          <div class="feld">
+            <label for="f-ort">Ort <span class="hinweis">– optional</span></label>
+            <input id="f-ort" name="ort" type="text" autocomplete="address-level2"
+                   placeholder="z. B. Bad Goisern">
+          </div>
+        </div>
+
+        <div class="feld">
+          <label for="f-kontakt">Telefon oder E-Mail
+            <span class="hinweis">– eines davon genügt</span></label>
+          <input id="f-kontakt" name="kontakt" type="text" autocomplete="tel"
+                 required aria-describedby="fehler-kontakt">
+          <p class="fehler" id="fehler-kontakt">Bitte trag eine Telefonnummer oder eine E-Mail-Adresse ein, damit wir dich erreichen.</p>
+        </div>
+
+        <div class="feld">
+          <label for="f-zeit">Wann passt es dir am besten?</label>
+          <select id="f-zeit" name="zeit">
+            <option value="Egal">Egal</option>
+            <option value="Vormittags">Vormittags</option>
+            <option value="Nachmittags">Nachmittags</option>
+            <option value="Abends">Abends</option>
+          </select>
+        </div>
+
+        <div class="feld">
+          <label for="f-text">Worum geht es?
+            <span class="hinweis">– zwei Sätze genügen</span></label>
+          <textarea id="f-text" name="text"
+                    placeholder="z. B.: Wir sanieren das Haus meiner Eltern und brauchen eine neue Küche."></textarea>
+        </div>
+
+        <button class="btn" type="submit" style="width:100%">
+          Beratungsgespräch anfragen
+        </button>
+
+        <!-- Rückmeldung an den Besucher: Sichtbarkeit des Systemstatus -->
+        <p class="status" id="status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+
+    <div class="kontakt-direkt">
+      <p><strong>Lieber gleich reden?</strong><br>
+      <a href="tel:+43613620022">06136 200 22</a></p>
+
+      <dl>
+        <dt>E-Mail</dt><dd><a href="mailto:office@schmez.at">office@schmez.at</a></dd>
+        <dt>Adresse</dt><dd>Austraße 22, 4824 Gosau</dd>
+        <dt>Zeiten</dt><dd>Mo–Fr 8–12 und 13–17 Uhr</dd>
+        <dt>Gebiet</dt><dd>Rund ums Salzkammergut</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ====================================================================
+     FUSSZEILE
+     >>> HIER KONTAKTDATEN UND PFLICHTLINKS ÄNDERN <<<
+     ==================================================================== -->
+<footer class="fuss">
+  <div class="inhalt">
+    <div class="spalten">
+      <div>
+        <img src="bilder/logo-schmez.png" alt="Tischlerei Schmez"
+             style="height:60px;width:auto;margin-bottom:14px">
+        <p>TISCHLEREI SCHMEZ GmbH<br>
+        Austraße 22<br>
+        4824 Gosau, Österreich</p>
+      </div>
+      <div>
+        <h3>Kontakt</h3>
+        <p><a href="tel:+43613620022">06136 200 22</a><br>
+        <a href="mailto:office@schmez.at">office@schmez.at</a></p>
+        <h3>Öffnungszeiten</h3>
+        <p>Montag bis Freitag<br>8–12 und 13–17 Uhr</p>
+      </div>
+      <div>
+        <h3>Einzugsgebiet</h3>
+        <p>Rund ums Salzkammergut</p>
+        <h3>Rechtliches</h3>
+        <p><a href="#impressum">Impressum</a><br>
+        <a href="#datenschutz">Datenschutz</a></p>
+      </div>
+    </div>
+
+    <!-- ==================================================================
+         IMPRESSUM UND DATENSCHUTZ
+         Stehen direkt in dieser Datei, damit die Seite auch allein
+         funktioniert. Angaben übernommen von schmez.at/impressum.
+         >>> BEI ÄNDERUNGEN IM FIRMENBUCH HIER NACHZIEHEN <<<
+         ================================================================== -->
+    <div class="rechtstexte">
+      <details id="impressum">
+        <summary>Impressum</summary>
+        <p><strong>Medieninhaber und für den Inhalt verantwortlich</strong><br>
+        TISCHLEREI SCHMEZ GmbH · Inhaber: Martin Schwaighofer<br>
+        Austraße 22, 4824 Gosau, Österreich</p>
+
+        <p>Telefon: +43 (0)6136 200 22 · E-Mail: office@schmez.at</p>
+
+        <p>Firmenbuchnummer: 612776T · UID-Nummer: ATU79898657<br>
+        Gewerbebehörde: Bezirkshauptmannschaft Gmunden<br>
+        Mitglied der Wirtschaftskammer Oberösterreich<br>
+        Berufsrecht: Gewerbeordnung, einsehbar auf ris.bka.gv.at</p>
+
+        <p><strong>Haftung:</strong> Wir übernehmen keine Gewähr für Richtigkeit,
+        Vollständigkeit und Aktualität der Inhalte. Für Inhalte verlinkter
+        Seiten sind deren Betreiber verantwortlich.</p>
+
+        <p><strong>Urheberrecht:</strong> Die Inhalte dieser Seite unterliegen
+        dem österreichischen Urheberrecht. Vervielfältigung nur mit unserer
+        schriftlichen Zustimmung.</p>
+      </details>
+
+      <details id="datenschutz">
+        <summary>Datenschutz</summary>
+        <p><strong>Diese Seite setzt keine Cookies</strong> und lädt keine
+        externen Schriften, Karten oder Analysewerkzeuge. Beim bloßen Besuch
+        werden keine Daten an Dritte übertragen.</p>
+
+        <p><strong>Anfrageformular:</strong> Das Formular verschickt nichts von
+        selbst. Es öffnet dein eigenes E-Mail-Programm mit der fertig
+        ausgefüllten Nachricht – abgeschickt wird sie erst, wenn du das dort
+        selbst tust. Deine Angaben erreichen uns also auf demselben Weg wie
+        eine normale E-Mail.</p>
+
+        <p><strong>Küchen-Checkliste:</strong> Für die Checkliste fragen wir
+        nur deine E-Mail-Adresse ab – nichts sonst. Wenn du das Formular
+        abschickst, geht die Adresse an den Formulardienst FormSubmit
+        (formsubmit.co). Der Dienst leitet sie als E-Mail an uns weiter und
+        schickt dir automatisch die Antwort mit der Checkliste. Es handelt
+        sich um einen Drittanbieter; die Verarbeitung kann dabei auch
+        außerhalb der EU stattfinden. Wir verwenden deine Adresse
+        ausschließlich für den Versand der Checkliste und eine allfällige
+        Rückfrage dazu – wir schicken dir keinen Newsletter, keine Werbung
+        und geben die Adresse nicht weiter. Eine Zeile an office@schmez.at
+        genügt, und wir löschen sie.</p>
+
+        <p><strong>Was wir damit tun:</strong> Wir verwenden deine Angaben
+        ausschließlich, um deine Anfrage zu beantworten und ein allfälliges
+        Angebot zu erstellen. Wir geben sie nicht weiter und löschen sie,
+        sobald sie nicht mehr gebraucht werden – spätestens nach Ablauf der
+        gesetzlichen Aufbewahrungsfristen.</p>
+
+        <p><strong>Deine Rechte:</strong> Du hast das Recht auf Auskunft,
+        Berichtigung, Löschung, Einschränkung der Verarbeitung,
+        Datenübertragbarkeit und Widerspruch. Wende dich dafür an
+        office@schmez.at. Außerdem kannst du dich bei der Österreichischen
+        Datenschutzbehörde beschweren (dsb.gv.at).</p>
+
+        <p>Verantwortlich im Sinne der DSGVO: TISCHLEREI SCHMEZ GmbH,
+        Austraße 22, 4824 Gosau, office@schmez.at</p>
+
+        <!-- >>> VOR DEM LIVEGANG PRÜFEN LASSEN <<<
+             Dieser Text beschreibt genau das, was diese Datei technisch tut.
+             Der Versand der Checkliste über FormSubmit ist bereits
+             beschrieben. Sobald ein Statistik-Werkzeug oder
+             eine Schriftart von außen dazukommt, muss er ergänzt werden.
+             Im Zweifel die WKO-Vorlage für Datenschutzerklärungen nehmen. -->
+      </details>
+    </div>
+    <p class="klein">
+      © <span id="jahr">2026</span> Tischlerei Schmez GmbH · Bewertungen:
+      4,96 von 5 aus 66 Bewertungen auf ProvenExpert.
+    </p>
+  </div>
+</footer>
+
+<!-- Feste Leiste am unteren Rand – nur am Handy sichtbar, im Daumenbereich -->
+<div class="daumenleiste">
+  <a class="btn btn--zweit" href="tel:+43613620022">Anrufen</a>
+  <a class="btn" href="#termin">Termin vereinbaren</a>
+</div>
+
+<script>
+/* ======================================================================
+   FORMULAR
+   Diese Seite läuft ohne Server. Deshalb öffnet das Formular die fertig
+   ausgefüllte E-Mail im Mailprogramm des Besuchers.
+
+   >>> HIER EMPFÄNGER-ADRESSE ÄNDERN <<<
+
+   Sobald die Seite auf einem Webserver liegt, kann der Webmaster auf ein
+   echtes Formular umstellen: action und method im <form> setzen und
+   diesen Block entfernen.
+   ====================================================================== */
+var EMPFAENGER = "office@schmez.at";
+
+(function () {
+  var formular = document.getElementById("anfrage");
+  var status   = document.getElementById("status");
+  if (!formular) return;
+
+  function markiere(feldId, fehlerhaft) {
+    var eingabe = document.getElementById(feldId);
+    eingabe.parentNode.classList.toggle("ist-fehler", fehlerhaft);
+    eingabe.setAttribute("aria-invalid", fehlerhaft ? "true" : "false");
+  }
+
+  formular.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    var name    = document.getElementById("f-name").value.trim();
+    var kontakt = document.getElementById("f-kontakt").value.trim();
+    var ort     = document.getElementById("f-ort").value.trim();
+    var zeit    = document.getElementById("f-zeit").value;
+    var text    = document.getElementById("f-text").value.trim();
+
+    /* Fehlervermeidung: nur die zwei wirklich nötigen Felder werden geprüft */
+    var fehltName    = name.length === 0;
+    var fehltKontakt = kontakt.length < 5;
+    markiere("f-name", fehltName);
+    markiere("f-kontakt", fehltKontakt);
+
+    if (fehltName || fehltKontakt) {
+      status.className = "status sichtbar";
+      status.textContent = "Da fehlt noch etwas – bitte schau kurz auf die rot markierten Felder.";
+      document.getElementById(fehltName ? "f-name" : "f-kontakt").focus();
+      return;
+    }
+
+    var betreff = "Anfrage Beratungsgespräch – " + name + (ort ? ", " + ort : "");
+    var koerper =
+      "Name: " + name + "\n" +
+      "Ort: " + (ort || "-") + "\n" +
+      "Kontakt: " + kontakt + "\n" +
+      "Passt am besten: " + zeit + "\n\n" +
+      "Worum es geht:\n" + (text || "-") + "\n";
+
+    window.location.href = "mailto:" + EMPFAENGER +
+      "?subject=" + encodeURIComponent(betreff) +
+      "&body="    + encodeURIComponent(koerper);
+
+    status.className = "status sichtbar";
+    status.textContent = "Dein E-Mail-Programm öffnet sich mit der fertigen Nachricht – " +
+      "einmal auf Senden drücken, dann ist sie bei uns. Klappt das nicht? " +
+      "Ruf einfach an: 06136 200 22.";
+  });
+})();
+
+/* ======================================================================
+   CHECKLISTEN-FORMULAR
+   Der Versand läuft über FormSubmit (siehe Abschnitt „Küchen-Checkliste“).
+   Ohne dieses Skript funktioniert das Formular trotzdem – dann landet der
+   Besucher aber auf der englischen Dankesseite von FormSubmit. Mit Skript
+   bleibt er auf unserer Seite und bekommt die Rückmeldung unter dem Knopf.
+   ====================================================================== */
+(function () {
+  var formular = document.getElementById("checkliste-formular");
+  if (!formular) return;
+
+  var eingabe = document.getElementById("ck-email");
+  var status  = document.getElementById("ck-status");
+  var knopf   = document.getElementById("ck-knopf");
+  var knopfText = "Checkliste per E-Mail bekommen";
+
+  function melde(text) {
+    status.className = "status sichtbar";
+    status.textContent = text;
+  }
+
+  formular.addEventListener("submit", function (e) {
+    var adresse = eingabe.value.trim();
+    /* Absichtlich grob geprüft: eine zu strenge Regel sperrt am Ende nur
+       echte Adressen aus. Es braucht ein @ und einen Punkt dahinter. */
+    var gueltig = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(adresse);
+
+    eingabe.parentNode.classList.toggle("ist-fehler", !gueltig);
+    eingabe.setAttribute("aria-invalid", gueltig ? "false" : "true");
+
+    if (!gueltig) {
+      e.preventDefault();
+      melde("Da stimmt an der E-Mail-Adresse noch etwas nicht – bitte schau kurz nach.");
+      eingabe.focus();
+      return;
+    }
+
+    /* Sehr alte Browser können kein fetch. Dort schickt das Formular ganz
+       normal ab – das ist besser, als dem Besucher gar nichts zu liefern. */
+    if (!window.fetch) return;
+
+    e.preventDefault();
+    knopf.disabled = true;
+    knopf.textContent = "Wird geschickt …";
+
+    /* Dieselbe Empfängeradresse wie im action, nur über den AJAX-Weg von
+       FormSubmit – dadurch bleibt der Besucher auf dieser Seite. */
+    var ziel = formular.getAttribute("action")
+                       .replace("formsubmit.co/", "formsubmit.co/ajax/");
+
+    var daten = {}, felder = formular.elements, i;
+    for (i = 0; i < felder.length; i++) {
+      if (felder[i].name) daten[felder[i].name] = felder[i].value;
+    }
+
+    fetch(ziel, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify(daten)
+    })
+    .then(function (antwort) {
+      if (!antwort.ok) throw new Error("Fehler " + antwort.status);
+      return antwort.json();
+    })
+    .then(function () {
+      formular.reset();
+      knopf.disabled = false;
+      knopf.textContent = knopfText;
+      melde("Passt – die Checkliste ist unterwegs zu dir. Wenn in ein paar " +
+            "Minuten nichts angekommen ist: bitte auch im Spam-Ordner nachsehen.");
+    })
+    .catch(function () {
+      knopf.disabled = false;
+      knopf.textContent = knopfText;
+      melde("Das hat gerade nicht geklappt. Schreib uns kurz an " +
+            "office@schmez.at – dann schicken wir dir die Checkliste von Hand.");
+    });
+  });
+})();
+
+/* Ein Klick auf „Impressum“ oder „Datenschutz“ soll den Text auch
+   aufklappen und nicht nur dorthin springen. Betrifft die Links in der
+   Fußzeile und den Datenschutz-Hinweis beim Checklisten-Formular. */
+(function () {
+  function aufklappen(name) {
+    if (name !== "datenschutz" && name !== "impressum") return;
+    var kasten = document.getElementById(name);
+    if (kasten) kasten.open = true;
+  }
+  function ausAdresse() { aufklappen(window.location.hash.replace("#", "")); }
+
+  var links = document.querySelectorAll(
+    'a[href="#datenschutz"], a[href="#impressum"]');
+  for (var i = 0; i < links.length; i++) {
+    links[i].addEventListener("click", function () {
+      aufklappen(this.getAttribute("href").replace("#", ""));
+    });
+  }
+
+  /* Zusätzlich für den Fall, dass jemand die Adresse mit #datenschutz
+     direkt aufruft oder im Verlauf vor- und zurückgeht. */
+  window.addEventListener("hashchange", ausAdresse);
+  ausAdresse();
+})();
+
+/* Jahreszahl in der Fußzeile aktuell halten */
+document.getElementById("jahr").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
+/* Ein Klick auf „Impressum“ oder „Datenschutz“ soll den Text auch
+   aufklappen und nicht nur dorthin springen. Betrifft die Links in der
+   Fußzeile und den Datenschutz-Hinweis beim Checklisten-Formular. */
+(function () {
+  function aufklappen(name) {
+    if (name !== "datenschutz" && name !== "impressum") return;
+    var kasten = document.getElementById(name);
+    if (kasten) kasten.open = true;
+  }
+  function ausAdresse() { aufklappen(window.location.hash.replace("#", "")); }
+
+  var links = document.querySelectorAll(
+    'a[href="#datenschutz"], a[href="#impressum"]');
+  for (var i = 0; i < links.length; i++) {
+    links[i].addEventListener("click", function () {
+      aufklappen(this.getAttribute("href").replace("#", ""));
+    });
+  }
+
+  /* Zusätzlich für den Fall, dass jemand die Adresse mit #datenschutz
+     direkt aufruft oder im Verlauf vor- und zurückgeht. */
+  window.addEventListener("hashchange", ausAdresse);
+  ausAdresse();
+})();
