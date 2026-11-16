@@ -560,6 +560,31 @@ footer.fuss .klein{ margin-top:30px; padding-top:18px; border-top:1px solid var(
   .team-raster{ grid-template-columns:repeat(4,minmax(0,1fr)); gap:20px; }
 }
 
+/* --- 6. GROSSANSICHT (Lightbox) – Klick auf ein Foto ----------------- */
+.zoombar{ cursor:zoom-in; }
+.lightbox{
+  position:fixed; inset:0; z-index:200; display:none;
+  background:rgba(20,16,14,.94);
+  align-items:center; justify-content:center; flex-direction:column;
+  padding:56px 12px 20px;
+}
+.lightbox.offen{ display:flex; }
+.lightbox img{
+  max-width:100%; max-height:calc(100vh - 120px); width:auto; height:auto;
+  object-fit:contain; border-radius:var(--radius); box-shadow:0 10px 40px rgba(0,0,0,.5);
+}
+.lightbox .lb-text{ color:#E4DCD2; margin-top:12px; font-size:.95rem; text-align:center; max-width:70ch; }
+.lightbox button{
+  position:absolute; background:rgba(255,255,255,.12); color:#fff; border:0;
+  width:52px; height:52px; border-radius:50%; font-size:1.8rem; line-height:1;
+  cursor:pointer; display:flex; align-items:center; justify-content:center;
+}
+.lightbox button:hover{ background:var(--rot); }
+.lightbox .lb-zu{ top:10px; right:12px; }
+.lightbox .lb-zurueck{ left:12px; top:50%; transform:translateY(-50%); }
+.lightbox .lb-weiter{ right:12px; top:50%; transform:translateY(-50%); }
+body.lb-aktiv{ overflow:hidden; }
+
 /* Druck */
 @media print{ .daumenleiste,nav.sprung,.kopf .btn{ display:none; } }
 </style>
@@ -1418,6 +1443,15 @@ footer.fuss .klein{ margin-top:30px; padding-top:18px; border-top:1px solid var(
   <a class="btn" href="#termin">Termin</a>
 </div>
 
+<!-- Großansicht für Fotos – wird vom Skript unten gesteuert -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Foto in Großansicht">
+  <button class="lb-zu" type="button" aria-label="Schließen">&times;</button>
+  <button class="lb-zurueck" type="button" aria-label="Vorheriges Foto">&#8249;</button>
+  <img alt="">
+  <p class="lb-text"></p>
+  <button class="lb-weiter" type="button" aria-label="Nächstes Foto">&#8250;</button>
+</div>
+
 <script>
 /* ======================================================================
    FORMULAR
@@ -1587,6 +1621,76 @@ var EMPFAENGER = "office@schmez.at";
      direkt aufruft oder im Verlauf vor- und zurückgeht. */
   window.addEventListener("hashchange", ausAdresse);
   ausAdresse();
+})();
+
+/* ======================================================================
+   GROSSANSICHT: Klick auf ein Foto zeigt es bildschirmfüllend.
+   Gilt für alle Fotos im Inhalt – nicht für Logos und Partnerlogos.
+   Bedienung: Pfeile/Wischen = blättern, Esc oder Klick daneben = zu.
+   ====================================================================== */
+(function () {
+  var lb = document.getElementById("lightbox");
+  var gross = lb.querySelector("img");
+  var text = lb.querySelector(".lb-text");
+  var bilder = [].slice.call(document.querySelectorAll("main img"))
+    .filter(function (b) { return !b.closest(".logos"); });
+  var jetzt = 0, vorher = null;
+
+  function zeige(i) {
+    var aktiv = bilder.filter(function (b) { return b.isConnected; });
+    if (!aktiv.length) return;
+    jetzt = (i + aktiv.length) % aktiv.length;
+    var b = aktiv[jetzt];
+    gross.src = b.currentSrc || b.src;
+    gross.alt = b.alt;
+    var fig = b.closest("figure");
+    var cap = fig && fig.querySelector("figcaption");
+    text.textContent = cap ? cap.textContent : b.alt;
+    bilder = aktiv;
+  }
+  function auf(i) {
+    vorher = document.activeElement;
+    zeige(i);
+    lb.classList.add("offen");
+    document.body.classList.add("lb-aktiv");
+    lb.querySelector(".lb-zu").focus();
+  }
+  function zu() {
+    lb.classList.remove("offen");
+    document.body.classList.remove("lb-aktiv");
+    if (vorher) vorher.focus();
+  }
+
+  bilder.forEach(function (b) {
+    b.classList.add("zoombar");
+    b.tabIndex = 0;
+    b.setAttribute("role", "button");
+    b.addEventListener("click", function () { auf(bilder.indexOf(b)); });
+    b.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); auf(bilder.indexOf(b)); }
+    });
+  });
+
+  lb.querySelector(".lb-zu").addEventListener("click", zu);
+  lb.querySelector(".lb-zurueck").addEventListener("click", function (e) { e.stopPropagation(); zeige(jetzt - 1); });
+  lb.querySelector(".lb-weiter").addEventListener("click", function (e) { e.stopPropagation(); zeige(jetzt + 1); });
+  lb.addEventListener("click", function (e) { if (e.target === lb) zu(); });
+  document.addEventListener("keydown", function (e) {
+    if (!lb.classList.contains("offen")) return;
+    if (e.key === "Escape") zu();
+    if (e.key === "ArrowLeft") zeige(jetzt - 1);
+    if (e.key === "ArrowRight") zeige(jetzt + 1);
+  });
+
+  /* Wischen am Handy */
+  var startX = null;
+  lb.addEventListener("touchstart", function (e) { startX = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener("touchend", function (e) {
+    if (startX === null) return;
+    var dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 50) zeige(jetzt + (dx < 0 ? 1 : -1));
+    startX = null;
+  });
 })();
 
 /* Jahreszahl in der Fußzeile aktuell halten */
