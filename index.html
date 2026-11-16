@@ -4,7 +4,23 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tischlerei Schmez – Küchen im Salzkammergut. Ein Ansprechpartner für alles.</title>
-<meta name="description" content="Wir planen und bauen deine Küche und koordinieren Maurer, Installateur, Elektriker und Maler gleich mit. Ein Ansprechpartner statt fünf Baustellen. Tischlerei Schmez, Gosau.">
+<meta name="description" content="Wir planen, liefern und montieren deine Küche und koordinieren Maurer, Installateur, Elektriker und Maler gleich mit. Ein Ansprechpartner statt fünf Baustellen. Schmez Tischlerei GmbH, Gosau – ab Frühjahr 2027 mit Küchenstudio.">
+
+<meta property="og:title" content="Schmez Tischlerei – Nicht organisieren. Nur noch einziehen.">
+<meta property="og:description" content="Küchen im Salzkammergut: Wir planen, montieren und koordinieren alle Handwerker. Ein Ansprechpartner statt fünf Baustellen.">
+<meta property="og:image" content="bilder/header-01.jpg">
+<meta property="og:locale" content="de_AT">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness",
+ "name":"Schmez Tischlerei GmbH","url":"https://www.schmez.at",
+ "logo":"https://www.schmez.at/bilder/logo-schmez.png",
+ "telephone":"+43 6136 20022","email":"office@schmez.at",
+ "address":{"@type":"PostalAddress","streetAddress":"Austraße 22","postalCode":"4824","addressLocality":"Gosau","addressCountry":"AT"},
+ "areaServed":"Salzkammergut",
+ "openingHours":"Mo-Fr 08:00-12:00, Mo-Fr 13:00-17:00",
+ "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.96","reviewCount":"66","bestRating":"5"},
+ "sameAs":["https://www.facebook.com/Schwaighofer.Martin","https://www.instagram.com/schmez_tischler_gosau/"]}
+</script>
 
 <style>
 /* ==========================================================================
@@ -487,6 +503,63 @@ footer.fuss .klein{ margin-top:30px; padding-top:18px; border-top:1px solid var(
   .stimmen .raster{ grid-template-columns:repeat(2,minmax(0,1fr)); }
 }
 
+
+/* --- 5. NEU: WHATSAPP, KÜCHENSTUDIO, TEAM, SOCIAL -------------------- */
+.btn--wa{ background:#1F7A4D; border-color:#1F7A4D; }
+.btn--wa:hover{ background:#185F3C; border-color:#185F3C; }
+.wa-link{ display:inline-flex; align-items:center; gap:8px; margin-top:14px;
+  font-weight:600; color:#1F7A4D; text-decoration:none; }
+.wa-link:hover{ text-decoration:underline; }
+
+/* Küchenstudio – Ankündigung Frühjahr 2027 */
+.studio{ background:var(--tinte); color:var(--papier); position:relative; overflow:hidden; }
+.studio h2{ color:#fff; }
+.studio .vorzeile{ color:var(--rot-licht); }
+.studio .lead{ color:#E4DCD2; }
+.studio-inner{ display:grid; grid-template-columns:minmax(0,1fr); gap:34px; align-items:center; }
+.studio-bild{ position:relative; margin:0; }
+.studio-bild img{ width:100%; height:auto; aspect-ratio:4/3; object-fit:cover;
+  border-radius:var(--radius); }
+.studio-stempel{
+  position:absolute; right:-8px; top:-14px; transform:rotate(6deg);
+  background:var(--rot); color:#fff; font-weight:700; text-align:center;
+  padding:14px 18px; border-radius:var(--radius); line-height:1.15;
+  box-shadow:0 8px 20px rgba(0,0,0,.35); font-size:.95rem;
+}
+.studio-stempel b{ display:block; font-size:1.5rem; }
+.studio ul{ list-style:none; margin:22px 0 0; padding:0; display:grid; gap:10px; }
+.studio ul li{ padding-left:30px; position:relative; }
+.studio ul li::before{ content:"\2713"; position:absolute; left:0; color:var(--rot-licht); font-weight:700; }
+.studio .adresse{ margin-top:22px; color:#C9BEB2; font-size:.98rem; }
+.studio .btn--zweit{ color:#fff; border-color:#fff; }
+.studio .btn--zweit:hover{ background:rgba(255,255,255,.1); }
+
+/* Team – Fotos kommen nach. Solange keines da ist, stehen die Initialen. */
+.team-raster{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px;
+  margin:34px 0 0; padding:0; list-style:none; }
+.person{ background:var(--papier-2); border:1px solid var(--linie); border-radius:var(--radius); overflow:hidden; }
+.person .foto{ position:relative; aspect-ratio:4/5; background:linear-gradient(160deg,#EFE7DA,#E2D5C2);
+  display:flex; align-items:center; justify-content:center; }
+.person .foto span{ font-size:2.4rem; font-weight:700; color:var(--rot); opacity:.55; letter-spacing:.04em; }
+.person .foto img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top center; }
+.person .text{ padding:14px 16px 16px; }
+.person h3{ margin:0 0 2px; font-size:1.05rem; }
+.person p{ margin:0; font-size:.9rem; color:var(--gedaempft); line-height:1.4; }
+
+/* Social-Media-Links in der Fußzeile */
+.social{ display:flex; gap:10px; margin-top:6px; }
+.social a{ display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px;
+  border:1px solid var(--linie); border-radius:50%; color:var(--tinte); background:var(--papier-2); }
+.social a:hover{ color:var(--rot); border-color:var(--rot); }
+
+/* Daumenleiste mit drei Knöpfen */
+.daumenleiste .btn--wa{ flex:0 0 auto; padding:12px 14px; }
+
+@media (min-width:760px){
+  .studio-inner{ grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:56px; }
+  .team-raster{ grid-template-columns:repeat(4,minmax(0,1fr)); gap:20px; }
+}
+
 /* Druck */
 @media print{ .daumenleiste,nav.sprung,.kopf .btn{ display:none; } }
 </style>
@@ -524,8 +597,10 @@ footer.fuss .klein{ margin-top:30px; padding-top:18px; border-top:1px solid var(
     <li><a href="#loesung">Unsere Lösung</a></li>
     <li><a href="#ablauf">Ablauf</a></li>
     <li><a href="#arbeiten">Arbeiten</a></li>
+    <li><a href="#kuechenstudio">Küchenstudio</a></li>
     <li><a href="#stimmen">Kundenstimmen</a></li>
     <li><a href="#ueber-uns">Über uns</a></li>
+    <li><a href="#team">Team</a></li>
     <li><a href="#fragen">Fragen</a></li>
     <li><a href="#checkliste">Checkliste</a></li>
     <li><a href="#termin">Kontakt</a></li>
@@ -545,7 +620,7 @@ footer.fuss .klein{ margin-top:30px; padding-top:18px; border-top:1px solid var(
       <p class="vorzeile">Küchen aus Gosau · fürs ganze Salzkammergut</p>
       <h1>Nicht organisieren. Nur noch einziehen.</h1>
       <p class="lead">
-        Wir planen und bauen deine Küche – und kümmern uns um alles drumherum.
+        Wir planen, liefern und montieren deine Küche – und kümmern uns um alles drumherum.
         Maurer, Installateur, Elektriker, Maler: Du hast einen Ansprechpartner
         statt fünf Baustellen.
       </p>
@@ -554,6 +629,8 @@ footer.fuss .klein{ margin-top:30px; padding-top:18px; border-top:1px solid var(
         <a class="btn" href="#termin">Vereinbare dein Beratungsgespräch</a>
         <a class="btn btn--zweit" href="tel:+43613620022">Oder ruf an: 06136 200 22</a>
       </div>
+      <a class="wa-link" href="https://wa.me/436802424007?text=Hallo%20Tischlerei%20Schmez%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20neue%20K%C3%BCche." target="_blank" rel="noopener"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.7 11.7 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.1-1.2-.2-.2-.4-.3z"/></svg>
+        Oder schreib uns schnell auf WhatsApp</a>
 
       <!-- Bewertungszahlen von ProvenExpert -->
       <p class="beleg">
@@ -565,7 +642,7 @@ footer.fuss .klein{ margin-top:30px; padding-top:18px; border-top:1px solid var(
     <figure class="header-bild">
       <img src="bilder/header-01.jpg" width="1200" height="900"
            alt="Küche mit dunklen Fronten, heller Steinarbeitsplatte und sichtbarem Holzbalken an der Decke">
-      <figcaption>Küche mit Holzbalken und Steinarbeitsplatte – von uns geplant, gebaut und montiert.</figcaption>
+      <figcaption>Küche mit Holzbalken und Steinarbeitsplatte – von uns geplant und montiert.</figcaption>
     </figure>
   </div>
 </section>
@@ -683,62 +760,112 @@ footer.fuss .klein{ margin-top:30px; padding-top:18px; border-top:1px solid var(
 <section id="arbeiten">
   <div class="inhalt">
     <p class="vorzeile">Unsere Arbeiten</p>
-    <h2 class="abschnitt-titel">Küchen, in denen seit Jahren jeden Tag gekocht wird.</h2>
+    <h2 class="abschnitt-titel">Küchen, in denen jeden Tag gekocht wird.</h2>
+    <p class="lead">Ein paar Projekte aus Gosau, Bad Ischl und Abtenau – jede anders, alle von uns geplant, koordiniert und montiert.</p>
 
     <div class="galerie">
       <figure>
-        <img src="bilder/header-02.jpg" width="1100" height="825"
-             alt="Helle Landhausküche mit Kochinsel und dunkler Natursteinarbeitsplatte">
-        <figcaption>Landhausküche mit Kochinsel</figcaption>
+        <img src="bilder/kueche-gosau-insel.jpg" width="1400" height="1050"
+             alt="Moderne Küche mit Kochinsel, Barhockern, indirekter Deckenbeleuchtung und Blick ins Grüne">
+        <figcaption>Gosau – Kochinsel mit Blick auf die Berge</figcaption>
       </figure>
       <figure>
-        <img src="bilder/kuechen01.jpg" width="1200" height="940" loading="lazy"
-             alt="Küche aus Altholz mit anthrazitfarbenen Hochschränken, dunkler Arbeitsplatte, Deckenbalken und einer Natursteinwand">
-        <figcaption>Altholz und Anthrazit – geplant um Balken und Steinwand herum</figcaption>
+        <img src="bilder/kueche-gosau-altholz.jpg" width="1400" height="1050"
+             alt="Küche in Altholz und Anthrazit unter Holzbalken, daneben eine Natursteinwand">
+        <figcaption>Gosau – Altholz trifft Anthrazit</figcaption>
       </figure>
       <figure>
-        <img src="bilder/kuechen02.jpg" width="1100" height="825" loading="lazy"
-             alt="Helle Küche in Eiche und Creme mit dunkler Granitarbeitsplatte, davor ein Fenster mit Blick auf bewaldete Berge">
-        <figcaption>Eiche und Creme, mit dem Fenster als bestem Platz der Küche</figcaption>
-      </figure>
-
-      <figure>
-        <img src="bilder/kuechen_header.jpg" width="1700" height="977" loading="lazy"
-             alt="Küchenzeile in Altholz mit anthrazitfarbenen Hochschränken, Granitarbeitsplatte und eingebautem Backofen">
-        <figcaption>Dieselbe Handschrift, anderer Grundriss: Altholz vor Anthrazit</figcaption>
+        <img src="bilder/kueche-badischl-weiss.jpg" width="1400" height="1050"
+             alt="Weiße Küche mit Kochinsel und dunkler Granitarbeitsplatte auf Eichenboden">
+        <figcaption>Bad Ischl – Weiß mit Granit</figcaption>
       </figure>
       <figure>
-        <img src="bilder/moebel05.jpg" width="1100" height="825" loading="lazy"
-             alt="Bad unter der Dachschräge mit freistehender Badewanne, Waschtisch aus Eiche mit zwei Aufsatzbecken und einem sichtbaren Holzbalken">
-        <figcaption>Nicht nur Küchen: Bad unter der Dachschräge, komplett geplant</figcaption>
+        <img src="bilder/kueche-gosau-eiche.jpg" width="1400" height="1050" loading="lazy"
+             alt="Küche in Eiche mit dunkler Arbeitsplatte und schwarzen Hochschränken">
+        <figcaption>Gosau – Eiche und Schwarz</figcaption>
       </figure>
       <figure>
-        <img src="bilder/moebel09.jpg" width="1200" height="900" loading="lazy"
+        <img src="bilder/kueche-abtenau.jpg" width="1400" height="1050" loading="lazy"
+             alt="Weiße Küche in L-Form mit grüner Glasrückwand und Blick in den Essbereich">
+        <figcaption>Abtenau – offen zum Essplatz</figcaption>
+      </figure>
+      <figure>
+        <img src="bilder/kueche-badischl-landhaus.jpg" width="1400" height="1050" loading="lazy"
+             alt="Küche mit Halbinsel in Eiche und Weiß, Glasvitrine und Deckenbalken">
+        <figcaption>Bad Ischl – Landhaus, modern gedacht</figcaption>
+      </figure>
+      <figure>
+        <img src="bilder/kueche-badischl-hochglanz.jpg" width="1400" height="1050" loading="lazy"
+             alt="Hochglanzküche in Weiß mit Holzarbeitsplatte und beleuchteter Rückwand">
+        <figcaption>Bad Ischl – Hochglanz und Holz</figcaption>
+      </figure>
+      <figure>
+        <img src="bilder/kueche-gosau-salbei.jpg" width="1400" height="1050" loading="lazy"
+             alt="Landhausküche in Salbeigrün mit Einbaugeräten und Natursteinplatte">
+        <figcaption>Gosau – Salbeigrün mit Naturstein</figcaption>
+      </figure>
+      <figure>
+        <img src="bilder/kueche-gosau-kachelofen.jpg" width="1400" height="1050" loading="lazy"
+             alt="Küche in Anthrazit mit Edelstahl-Dunstabzug neben einem grünen Kachelofen">
+        <figcaption>Gosau – Küche um den Kachelofen geplant</figcaption>
+      </figure>
+      <figure>
+        <img src="bilder/bad-gosau.jpg" width="1400" height="1050" loading="lazy"
+             alt="Bad mit Waschtisch in Eiche, Hochschrank und beleuchtetem Spiegel">
+        <figcaption>Nicht nur Küchen: Bad in Gosau</figcaption>
+      </figure>
+      <figure>
+        <img src="bilder/gastro-badischl.jpg" width="1400" height="1050" loading="lazy"
+             alt="Holzbar und Gastraum in Fichte mit Regalwand und Altholzbalken">
+        <figcaption>Und auch für Gastronomie: Bad Ischl 2026</figcaption>
+      </figure>
+      <figure>
+        <img src="bilder/moebel09.jpg" width="1400" height="1050" loading="lazy"
              alt="Schlafzimmer in hellem Zirbenholz mit Wandverkleidung, Holzdecke, Einbauschrank und Waschtisch">
-        <figcaption>Schlafzimmer in Zirbe – Wand, Decke und Schrank aus einer Hand</figcaption>
+        <figcaption>Schlafzimmer in Zirbe – aus einer Hand</figcaption>
       </figure>
 
-      <!-- >>> DIESE ZWEI FOTOS FEHLEN NOCH – SIE WÄREN DIE STÄRKSTEN <<<
-           Sobald du sie hast, den Kommentar unten entfernen und die
-           Dateien in den Ordner "bilder" legen. Ein Handyfoto genügt.
-
-           1) Vorher und Nachher: alte und neue Küche im selben Raum.
-              Das überzeugt mehr als jedes andere Bild auf dieser Seite.
-           2) Montage: das Team bei der Arbeit beim Kunden.
-              Beweist, dass echte Menschen ins Haus kommen.
-
-      <figure>
-        <img src="bilder/vorher-nachher.jpg" width="1200" height="900" loading="lazy"
-             alt="Dieselbe Küche vor und nach dem Umbau">
-        <figcaption>Aus der alten Küche von 1998 wurde das hier – im selben Raum.</figcaption>
-      </figure>
-      <figure>
-        <img src="bilder/montage.jpg" width="1200" height="900" loading="lazy"
-             alt="Zwei Mitarbeiter der Tischlerei Schmez bei der Montage einer Küche">
-        <figcaption>Montagetag in Bad Goisern – Andi und Daniel beim Einpassen.</figcaption>
-      </figure>
-      -->
+      <!-- >>> NOCH STÄRKER WÄREN: <<<
+           1) Vorher/Nachher – alte und neue Küche im selben Raum.
+           2) Montage – das Team bei der Arbeit beim Kunden.
+           Einfach als weiteres <figure> wie oben einfügen. -->
     </div>
+  </div>
+</section>
+
+
+<!-- ====================================================================
+     5b · KÜCHENSTUDIO – Ankündigung, Eröffnung Frühjahr 2027
+     >>> SOBALD DAS STUDIO OFFEN IST: <<<
+     Stempel "Frühjahr 2027" entfernen, Öffnungszeiten ergänzen und das
+     Foto gegen ein echtes Foto vom Studio tauschen.
+     ==================================================================== -->
+<section class="studio" id="kuechenstudio">
+  <div class="inhalt studio-inner">
+    <div>
+      <p class="vorzeile">Bald neu in Gosau</p>
+      <h2 class="abschnitt-titel">Unser Küchenstudio. Zum Anschauen, Angreifen, Ausprobieren.</h2>
+      <p class="lead">Eine Küche kauft man nicht aus dem Katalog. Ab Frühjahr 2027
+      kannst du bei uns Fronten, Arbeitsplatten und Geräte selbst in die Hand
+      nehmen – und in Ruhe mit uns planen, bei einem Kaffee.</p>
+      <ul>
+        <li>Musterküchen zum Anschauen und Ausprobieren</li>
+        <li>Fronten, Griffe und Arbeitsplatten im Original</li>
+        <li>Planung am großen Bildschirm, in 3D</li>
+        <li>Beratung mit Termin – damit wir ganz für dich da sind</li>
+      </ul>
+      <p class="adresse"><strong>Gosauseestraße 57, 4824 Gosau</strong></p>
+      <div class="btn-reihe">
+        <a class="btn" href="#termin">Beratungsgespräch vereinbaren</a>
+        <a class="btn btn--zweit" href="https://wa.me/436802424007?text=Hallo%2C%20bitte%20gebt%20mir%20Bescheid%2C%20wenn%20das%20K%C3%BCchenstudio%20er%C3%B6ffnet."
+           target="_blank" rel="noopener">Zur Eröffnung einladen lassen</a>
+      </div>
+    </div>
+    <figure class="studio-bild">
+      <img src="bilder/kueche-gosau-insel.jpg" width="1400" height="1050" loading="lazy"
+           alt="Moderne Küche mit Kochinsel und indirekter Beleuchtung">
+      <p class="studio-stempel">Eröffnung<b>Frühjahr 2027</b></p>
+    </figure>
   </div>
 </section>
 
@@ -814,8 +941,8 @@ footer.fuss .klein{ margin-top:30px; padding-top:18px; border-top:1px solid var(
 
         <p>Gedacht war das als Ein-Mann-Betrieb. Es kamen mehr Aufträge, als
         einer schaffen konnte. Heute sind wir ein junges Team aus Gosau, das
-        Küchen, Möbel und Bäder baut – und dabei den ganzen Umbau mitdenkt,
-        nicht nur das Möbelstück.</p>
+        Küchen, Möbel und Bäder plant und montiert – und dabei den ganzen
+        Umbau mitdenkt, nicht nur das Möbelstück.</p>
 
         <p><strong>Was uns wichtig ist:</strong> ehrlich sagen, was geht und was
         nicht. Handschlagqualität statt Kleingedrucktem. Und Holz behandeln wie
@@ -824,17 +951,75 @@ footer.fuss .klein{ margin-top:30px; padding-top:18px; border-top:1px solid var(
 
       <div>
         <!-- >>> FOTO AUSTAUSCHEN <<< Portrait von schmez.at übernommen.
-             Ein Foto in der Werkstatt oder auf der Baustelle wäre stärker,
+             Ein Foto auf der Baustelle wäre stärker,
              weil es das Handwerk zeigt. Dann hier den Dateinamen ändern. -->
         <img class="portrait" src="bilder/martin-schwaighofer.jpg"
              width="821" height="1201" loading="lazy"
              alt="Martin Schwaighofer, Tischlermeister und Inhaber der Tischlerei Schmez">
-        <div class="team">
-          <p><strong>Das Team:</strong> Martin und Heike, Andi, Daniel, Paul und
-          Kevin – und Martina im Büro, die zurückruft, wenn du anrufst.</p>
-        </div>
       </div>
     </div>
+  </div>
+</section>
+
+
+<!-- ====================================================================
+     7a · TEAM
+     >>> HIER MITARBEITERFOTOS EINFÜGEN <<<
+     Einfach die Fotos in den Ordner "bilder/team" legen, mit genau
+     diesen Dateinamen (klein geschrieben, .jpg):
+       martin.jpg  heike.jpg  andi.jpg  martina.jpg
+       daniel.jpg  max.jpg    kevin.jpg klaus.jpg
+     Hochformat (z. B. 800 x 1000 Pixel) passt am besten. Solange ein Foto
+     fehlt, stehen automatisch die Initialen da – nichts geht kaputt.
+     ==================================================================== -->
+<section id="team" style="padding-top:0">
+  <div class="inhalt">
+    <p class="vorzeile">Das Team</p>
+    <h2 class="abschnitt-titel">Die Leute, die zu dir ins Haus kommen.</h2>
+    <p class="lead">Keine Subfirma, die du nie gesehen hast. Wer dich berät, kennt
+    deine Küche – und wer sie montiert, weiß, was besprochen wurde.</p>
+    <ul class="team-raster">
+      <li class="person">
+        <div class="foto"><span aria-hidden="true">MS</span>
+          <img src="bilder/team/martin.jpg" alt="Martin Schwaighofer" loading="lazy" onerror="this.remove()"></div>
+        <div class="text"><h3>Martin Schwaighofer</h3><p>Tischlermeister und Chef – plant, berät, hält alles zusammen</p></div>
+      </li>
+      <li class="person">
+        <div class="foto"><span aria-hidden="true">HS</span>
+          <img src="bilder/team/heike.jpg" alt="Heike Schwaighofer" loading="lazy" onerror="this.remove()"></div>
+        <div class="text"><h3>Heike Schwaighofer</h3><p>Büro und Finanzen – sorgt dafür, dass im Hintergrund alles passt</p></div>
+      </li>
+      <li class="person">
+        <div class="foto"><span aria-hidden="true">AS</span>
+          <img src="bilder/team/andi.jpg" alt="Andreas Schmaranzer" loading="lazy" onerror="this.remove()"></div>
+        <div class="text"><h3>Andreas Schmaranzer</h3><p>Beratung und Projektleitung – begleitet dich vom Aufmaß bis zur Rechnung</p></div>
+      </li>
+      <li class="person">
+        <div class="foto"><span aria-hidden="true">MT</span>
+          <img src="bilder/team/martina.jpg" alt="Martina Treichl" loading="lazy" onerror="this.remove()"></div>
+        <div class="text"><h3>Martina Treichl</h3><p>Büro und Planung – ruft zurück, wenn du anrufst</p></div>
+      </li>
+      <li class="person">
+        <div class="foto"><span aria-hidden="true">DP</span>
+          <img src="bilder/team/daniel.jpg" alt="Daniel Posch" loading="lazy" onerror="this.remove()"></div>
+        <div class="text"><h3>Daniel Posch</h3><p>Montage und Beratung</p></div>
+      </li>
+      <li class="person">
+        <div class="foto"><span aria-hidden="true">MW</span>
+          <img src="bilder/team/max.jpg" alt="Max Winterauer" loading="lazy" onerror="this.remove()"></div>
+        <div class="text"><h3>Max Winterauer</h3><p>Montage</p></div>
+      </li>
+      <li class="person">
+        <div class="foto"><span aria-hidden="true">KP</span>
+          <img src="bilder/team/kevin.jpg" alt="Kevin Posch" loading="lazy" onerror="this.remove()"></div>
+        <div class="text"><h3>Kevin Posch</h3><p>Montage</p></div>
+      </li>
+      <li class="person">
+        <div class="foto"><span aria-hidden="true">KG</span>
+          <img src="bilder/team/klaus.jpg" alt="Klaus Gamsjäger" loading="lazy" onerror="this.remove()"></div>
+        <div class="text"><h3>Klaus Gamsjäger</h3><p>Montage und Trockenbau</p></div>
+      </li>
+    </ul>
   </div>
 </section>
 
@@ -848,11 +1033,11 @@ footer.fuss .klein{ margin-top:30px; padding-top:18px; border-top:1px solid var(
 <section class="partner" id="partner">
   <div class="inhalt">
     <p class="vorzeile">Womit wir arbeiten</p>
-    <h2 class="abschnitt-titel">Was wir nicht selbst bauen, kaufen wir dort, wo es hält.</h2>
+    <h2 class="abschnitt-titel">Wir arbeiten mit Herstellern, auf die Verlass ist.</h2>
     <p class="lead">
-      Geräte, Beschattung, Fenster, Türen, Böden: Was nicht aus unserer
-      Werkstatt kommt, kommt von Herstellern, bei denen wir wissen, wen wir
-      anrufen – auch dann noch, wenn später einmal etwas ist.
+      Küchen, Geräte, Beschattung, Fenster, Türen, Böden: Wir planen und
+      montieren mit Marken, bei denen wir wissen, wen wir anrufen – auch dann
+      noch, wenn später einmal etwas ist.
     </p>
 
     <ul class="logos">
@@ -987,7 +1172,7 @@ footer.fuss .klein{ margin-top:30px; padding-top:18px; border-top:1px solid var(
         <input type="hidden" name="_captcha" value="false">
         <!-- >>> HIER LINK ZUR CHECKLISTE ÄNDERN <<< (die einzige Stelle) -->
         <input type="hidden" name="_autoresponse"
-               value="Danke für dein Interesse! Hier ist deine Küchen-Checkliste mit den 12 Fragen vor der Planung: https://www.schmez.at/kuechen-checkliste.pdf – Wenn du dazu etwas fragen willst, antworte einfach auf diese E-Mail oder ruf an: 06136 200 22. Herzliche Grüße, TISCHLEREI SCHMEZ GmbH, Austraße 22, 4824 Gosau">
+               value="Danke für dein Interesse! Hier ist deine Küchen-Checkliste mit den 12 Fragen vor der Planung: https://www.schmez.at/kuechen-checkliste.pdf – Wenn du dazu etwas fragen willst, antworte einfach auf diese E-Mail oder ruf an: 06136 200 22. Herzliche Grüße, Schmez Tischlerei GmbH, Austraße 22, 4824 Gosau">
         <!-- Honigtopf gegen Werbe-Roboter: Menschen sehen das Feld nicht,
              Roboter füllen es aus – dann wirft FormSubmit den Eintrag weg. -->
         <input type="text" name="_honey" tabindex="-1" autocomplete="off"
@@ -1081,9 +1266,13 @@ footer.fuss .klein{ margin-top:30px; padding-top:18px; border-top:1px solid var(
       <p><strong>Lieber gleich reden?</strong><br>
       <a href="tel:+43613620022">06136 200 22</a></p>
 
+      <p><a class="btn btn--wa" href="https://wa.me/436802424007?text=Hallo%20Tischlerei%20Schmez%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20neue%20K%C3%BCche." target="_blank" rel="noopener"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.7 11.7 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.1-1.2-.2-.2-.4-.3z"/></svg>
+        Auf WhatsApp schreiben</a></p>
+
       <dl>
         <dt>E-Mail</dt><dd><a href="mailto:office@schmez.at">office@schmez.at</a></dd>
         <dt>Adresse</dt><dd>Austraße 22, 4824 Gosau</dd>
+        <dt>Studio</dt><dd>Gosauseestraße 57, ab Frühjahr 2027</dd>
         <dt>Zeiten</dt><dd>Mo–Fr 8–12 und 13–17 Uhr</dd>
         <dt>Gebiet</dt><dd>Rund ums Salzkammergut</dd>
       </dl>
@@ -1103,7 +1292,7 @@ footer.fuss .klein{ margin-top:30px; padding-top:18px; border-top:1px solid var(
       <div>
         <img src="bilder/logo-schmez.png" alt="Tischlerei Schmez"
              style="height:60px;width:auto;margin-bottom:14px">
-        <p>TISCHLEREI SCHMEZ GmbH<br>
+        <p>Schmez Tischlerei GmbH<br>
         Austraße 22<br>
         4824 Gosau, Österreich</p>
       </div>
@@ -1117,6 +1306,15 @@ footer.fuss .klein{ margin-top:30px; padding-top:18px; border-top:1px solid var(
       <div>
         <h3>Einzugsgebiet</h3>
         <p>Rund ums Salzkammergut</p>
+        <!-- >>> HIER SOCIAL-MEDIA-ADRESSEN ÄNDERN <<<
+             Facebook läuft noch unter /Schwaighofer.Martin – sobald die
+             Seite umbenannt ist, die neue Adresse hier eintragen. -->
+        <h3>Folg uns</h3>
+        <p class="social">
+          <a href="https://www.facebook.com/Schwaighofer.Martin" target="_blank" rel="noopener" aria-label="Schmez auf Facebook"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.5 1.6-1.5h1.7V4.4a22 22 0 0 0-2.5-.1c-2.4 0-4.1 1.5-4.1 4.2v2.3H7.5V14h2.7v8z"/></svg></a>
+          <a href="https://www.instagram.com/schmez_tischler_gosau/" target="_blank" rel="noopener" aria-label="Schmez auf Instagram"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="https://wa.me/436802424007?text=Hallo%20Tischlerei%20Schmez%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20neue%20K%C3%BCche." target="_blank" rel="noopener" aria-label="Schmez auf WhatsApp"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.7 11.7 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.1-1.2-.2-.2-.4-.3z"/></svg></a>
+        </p>
         <h3>Rechtliches</h3>
         <p><a href="#impressum">Impressum</a><br>
         <a href="#datenschutz">Datenschutz</a></p>
@@ -1133,7 +1331,7 @@ footer.fuss .klein{ margin-top:30px; padding-top:18px; border-top:1px solid var(
       <details id="impressum">
         <summary>Impressum</summary>
         <p><strong>Medieninhaber und für den Inhalt verantwortlich</strong><br>
-        TISCHLEREI SCHMEZ GmbH · Inhaber: Martin Schwaighofer<br>
+        Schmez Tischlerei GmbH · Inhaber: Martin Schwaighofer<br>
         Austraße 22, 4824 Gosau, Österreich</p>
 
         <p>Telefon: +43 (0)6136 200 22 · E-Mail: office@schmez.at</p>
@@ -1176,6 +1374,13 @@ footer.fuss .klein{ margin-top:30px; padding-top:18px; border-top:1px solid var(
         und geben die Adresse nicht weiter. Eine Zeile an office@schmez.at
         genügt, und wir löschen sie.</p>
 
+        <p><strong>WhatsApp, Facebook, Instagram:</strong> Auf dieser Seite
+        sind diese Dienste nur verlinkt, nicht eingebunden. Erst wenn du
+        auf einen solchen Link tippst, wirst du zum jeweiligen Dienst
+        weitergeleitet (Anbieter: Meta Platforms Ireland Ltd.). Schreibst du
+        uns auf WhatsApp, gelten dafür die Datenschutzbestimmungen von
+        WhatsApp; wir verwenden deine Nachricht nur, um dir zu antworten.</p>
+
         <p><strong>Was wir damit tun:</strong> Wir verwenden deine Angaben
         ausschließlich, um deine Anfrage zu beantworten und ein allfälliges
         Angebot zu erstellen. Wir geben sie nicht weiter und löschen sie,
@@ -1188,7 +1393,7 @@ footer.fuss .klein{ margin-top:30px; padding-top:18px; border-top:1px solid var(
         office@schmez.at. Außerdem kannst du dich bei der Österreichischen
         Datenschutzbehörde beschweren (dsb.gv.at).</p>
 
-        <p>Verantwortlich im Sinne der DSGVO: TISCHLEREI SCHMEZ GmbH,
+        <p>Verantwortlich im Sinne der DSGVO: Schmez Tischlerei GmbH,
         Austraße 22, 4824 Gosau, office@schmez.at</p>
 
         <!-- >>> VOR DEM LIVEGANG PRÜFEN LASSEN <<<
@@ -1200,7 +1405,7 @@ footer.fuss .klein{ margin-top:30px; padding-top:18px; border-top:1px solid var(
       </details>
     </div>
     <p class="klein">
-      © <span id="jahr">2026</span> Tischlerei Schmez GmbH · Bewertungen:
+      © <span id="jahr">2026</span> Schmez Tischlerei GmbH · Bewertungen:
       4,96 von 5 aus 66 Bewertungen auf ProvenExpert.
     </p>
   </div>
@@ -1209,7 +1414,8 @@ footer.fuss .klein{ margin-top:30px; padding-top:18px; border-top:1px solid var(
 <!-- Feste Leiste am unteren Rand – nur am Handy sichtbar, im Daumenbereich -->
 <div class="daumenleiste">
   <a class="btn btn--zweit" href="tel:+43613620022">Anrufen</a>
-  <a class="btn" href="#termin">Termin vereinbaren</a>
+  <a class="btn btn--wa" href="https://wa.me/436802424007?text=Hallo%20Tischlerei%20Schmez%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20neue%20K%C3%BCche." target="_blank" rel="noopener" aria-label="WhatsApp"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.7 11.7 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.1-1.2-.2-.2-.4-.3z"/></svg></a>
+  <a class="btn" href="#termin">Termin</a>
 </div>
 
 <script>
@@ -1388,27 +1594,3 @@ document.getElementById("jahr").textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
-/* Ein Klick auf „Impressum“ oder „Datenschutz“ soll den Text auch
-   aufklappen und nicht nur dorthin springen. Betrifft die Links in der
-   Fußzeile und den Datenschutz-Hinweis beim Checklisten-Formular. */
-(function () {
-  function aufklappen(name) {
-    if (name !== "datenschutz" && name !== "impressum") return;
-    var kasten = document.getElementById(name);
-    if (kasten) kasten.open = true;
-  }
-  function ausAdresse() { aufklappen(window.location.hash.replace("#", "")); }
-
-  var links = document.querySelectorAll(
-    'a[href="#datenschutz"], a[href="#impressum"]');
-  for (var i = 0; i < links.length; i++) {
-    links[i].addEventListener("click", function () {
-      aufklappen(this.getAttribute("href").replace("#", ""));
-    });
-  }
-
-  /* Zusätzlich für den Fall, dass jemand die Adresse mit #datenschutz
-     direkt aufruft oder im Verlauf vor- und zurückgeht. */
-  window.addEventListener("hashchange", ausAdresse);
-  ausAdresse();
-})();
