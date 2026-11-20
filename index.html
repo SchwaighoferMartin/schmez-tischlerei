@@ -1,23 +1,40 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de-AT">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tischlerei Schmez – Küchen im Salzkammergut. Ein Ansprechpartner für alles.</title>
-<meta name="description" content="Wir planen, liefern und montieren deine Küche und koordinieren Maurer, Installateur, Elektriker und Maler gleich mit. Ein Ansprechpartner statt fünf Baustellen. Schmez Tischlerei GmbH, Gosau – ab Frühjahr 2027 mit Küchenstudio.">
+<title>Küchen Gosau &amp; Salzkammergut – Schmez Tischlerei</title>
+<meta name="description" content="Küchen planen, liefern, montieren – und alle Handwerker koordinieren. Schmez Tischlerei in Gosau für Bad Ischl, Bad Goisern und das ganze Salzkammergut.">
 
+<link rel="canonical" href="https://www.schmez.at/">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#9B2321">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.schmez.at/">
+<meta property="og:site_name" content="Schmez Tischlerei">
 <meta property="og:title" content="Schmez Tischlerei – Nicht organisieren. Nur noch einziehen.">
 <meta property="og:description" content="Küchen im Salzkammergut: Wir planen, montieren und koordinieren alle Handwerker. Ein Ansprechpartner statt fünf Baustellen.">
-<meta property="og:image" content="bilder/header-01.jpg">
+<meta property="og:image" content="https://www.schmez.at/bilder/header-01.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="900">
 <meta property="og:locale" content="de_AT">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"HomeAndConstructionBusiness",
- "name":"Schmez Tischlerei GmbH","url":"https://www.schmez.at",
+ "@id":"https://www.schmez.at/#firma",
+ "name":"Schmez Tischlerei GmbH","alternateName":"Tischlerei Schmez",
+ "description":"Küchen planen, liefern und montieren – inklusive Koordination aller Handwerker. Ein Ansprechpartner im Salzkammergut.",
+ "url":"https://www.schmez.at/",
  "logo":"https://www.schmez.at/bilder/logo-schmez.png",
+ "image":["https://www.schmez.at/bilder/header-01.jpg","https://www.schmez.at/bilder/kueche-gosau-insel.jpg"],
  "telephone":"+43 6136 20022","email":"office@schmez.at",
- "address":{"@type":"PostalAddress","streetAddress":"Austraße 22","postalCode":"4824","addressLocality":"Gosau","addressCountry":"AT"},
- "areaServed":"Salzkammergut",
- "openingHours":"Mo-Fr 08:00-12:00, Mo-Fr 13:00-17:00",
+ "address":{"@type":"PostalAddress","streetAddress":"Austraße 22","postalCode":"4824","addressLocality":"Gosau","addressRegion":"Oberösterreich","addressCountry":"AT"},
+ "areaServed":[{"@type":"Place","name":"Salzkammergut"},"Gosau","Bad Goisern","Hallstatt","Bad Ischl","Abtenau","Annaberg-Lungötz","Bad Aussee","Gmunden","Ebensee","St. Wolfgang"],
+ "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"12:00"},
+   {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"13:00","closes":"17:00"}],
+ "founder":{"@type":"Person","name":"Martin Schwaighofer","jobTitle":"Tischlermeister"},
+ "knowsAbout":["Küchenplanung","Küchenmontage","Küchenstudio","Fenster","Türen","Böden","Möbel nach Maß"],
+ "brand":[{"@type":"Brand","name":"Häcker"},{"@type":"Brand","name":"DAN Küchen"},{"@type":"Brand","name":"Miele"},{"@type":"Brand","name":"Bosch"}],
  "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.96","reviewCount":"66","bestRating":"5"},
  "sameAs":["https://www.facebook.com/Schwaighofer.Martin","https://www.instagram.com/schmez_tischler_gosau/"]}
 </script>
@@ -605,6 +622,7 @@ body.lb-aktiv{ overflow:hidden; }
   .ueber-kurz{ grid-template-columns:280px minmax(0,1fr); gap:48px; }
 }
 
+.h1-vorzeile{ display:block; margin-bottom:14px; letter-spacing:.12em; line-height:1.4; }
 /* Druck */
 @media print{ .daumenleiste,nav.sprung,.kopf .btn{ display:none; } }
 </style>
@@ -660,8 +678,8 @@ body.lb-aktiv{ overflow:hidden; }
 <section class="header">
   <div class="inhalt header-inner">
     <div>
-      <p class="vorzeile">Küchen aus Gosau · fürs ganze Salzkammergut</p>
-      <h1>Nicht organisieren. Nur noch einziehen.</h1>
+      <h1><span class="vorzeile h1-vorzeile">Küchen aus Gosau · fürs ganze Salzkammergut</span>
+        Nicht organisieren. Nur noch einziehen.</h1>
       <p class="lead">Deine Küche – und alle Handwerker drumherum.
       Ein Ansprechpartner, fertig.</p>
 
@@ -680,8 +698,8 @@ body.lb-aktiv{ overflow:hidden; }
     </div>
 
     <figure class="header-bild">
-      <img src="bilder/header-01.jpg" width="1200" height="900"
-           alt="Küche mit dunklen Fronten, heller Steinarbeitsplatte und sichtbarem Holzbalken an der Decke">
+      <img src="bilder/header-01.jpg" width="1200" height="900" fetchpriority="high"
+           alt="Neue Küche in Gosau mit dunklen Fronten, Kochinsel, heller Steinarbeitsplatte und Holzbalken – geplant und montiert von der Schmez Tischlerei">
           </figure>
   </div>
 </section>
@@ -948,7 +966,7 @@ body.lb-aktiv{ overflow:hidden; }
          alt="Martin Schwaighofer, Tischlermeister und Chef der Schmez Tischlerei">
     <div>
       <p class="vorzeile">Wer dahinter steht</p>
-      <h2 class="abschnitt-titel">Martin Schwaighofer, Tischlermeister.</h2>
+      <h2 class="abschnitt-titel">Martin Schwaighofer, Tischlermeister in Gosau.</h2>
       <p class="lead">Gosauer Tischler, unterwegs in Hamburg, Neuseeland und
       San Francisco – und zurück im Gosautal. Ehrlich sagen, was geht.
       Handschlagqualität statt Kleingedrucktem.</p>
@@ -1000,7 +1018,7 @@ body.lb-aktiv{ overflow:hidden; }
       </li>
       <li class="person">
         <div class="foto"><span aria-hidden="true">MW</span>
-          <img src="bilder/team/max.jpg" alt="Max Winterauer" loading="lazy" onerror="this.remove()"></div>
+          <!-- Foto fehlt noch: bilder/team/max.jpg ablegen und hier ein img-Tag einfügen --></div>
         <div class="text"><h3>Max Winterauer</h3><p>Montage</p></div>
       </li>
       <li class="person">
@@ -1010,7 +1028,7 @@ body.lb-aktiv{ overflow:hidden; }
       </li>
       <li class="person">
         <div class="foto"><span aria-hidden="true">KG</span>
-          <img src="bilder/team/klaus.jpg" alt="Klaus Gamsjäger" loading="lazy" onerror="this.remove()"></div>
+          <!-- Foto fehlt noch: bilder/team/klaus.jpg ablegen und hier ein img-Tag einfügen --></div>
         <div class="text"><h3>Klaus Gamsjäger</h3><p>Montage und Trockenbau</p></div>
       </li>
     </ul>
@@ -1061,7 +1079,7 @@ body.lb-aktiv{ overflow:hidden; }
       <details class="frage"><summary>Müssen wir Handwerker selbst suchen?</summary>
         <p>Nein. Das machen wir – oder wir stimmen uns mit deinen Leuten ab.</p></details>
       <details class="frage"><summary>Wo arbeitet ihr?</summary>
-        <p>Rund ums Salzkammergut, Sitz in Gosau.</p></details>
+        <p>Rund ums Salzkammergut: Gosau, Bad Goisern, Hallstatt, Bad Ischl, Abtenau, Ausseerland und Umgebung.</p></details>
       <details class="frage"><summary>Was kostet eine Küche?</summary>
         <p>Nach dem ersten Gespräch bekommst du ein Angebot mit allem drin – ohne spätere Extras.</p></details>
     </div>
@@ -1174,7 +1192,7 @@ body.lb-aktiv{ overflow:hidden; }
       </div>
       <div>
         <h3>Einzugsgebiet</h3>
-        <p>Rund ums Salzkammergut</p>
+        <p>Gosau, Bad Goisern, Hallstatt, Bad Ischl, Abtenau, Ausseerland – rund ums Salzkammergut</p>
         <!-- >>> HIER SOCIAL-MEDIA-ADRESSEN ÄNDERN <<<
              Facebook läuft noch unter /Schwaighofer.Martin – sobald die
              Seite umbenannt ist, die neue Adresse hier eintragen. -->
