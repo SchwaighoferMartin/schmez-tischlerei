@@ -585,6 +585,26 @@ footer.fuss .klein{ margin-top:30px; padding-top:18px; border-top:1px solid var(
 .lightbox .lb-weiter{ right:12px; top:50%; transform:translateY(-50%); }
 body.lb-aktiv{ overflow:hidden; }
 
+/* --- 7. KURZFASSUNG: Gewerke-Band, kurze Schritte, Über uns ---------- */
+.problem{ text-align:center; }
+.problem .abschnitt-titel{ margin-left:auto; margin-right:auto; }
+.gewerke{ list-style:none; padding:0; margin:28px auto 0; display:flex; flex-wrap:wrap;
+  justify-content:center; gap:10px; max-width:760px; }
+.gewerke li{ border:1px solid rgba(255,255,255,.35); border-radius:40px; padding:9px 18px;
+  font-weight:600; color:#fff; background:rgba(255,255,255,.06); }
+.gewerke li:first-child{ background:var(--rot); border-color:var(--rot); }
+.gewerke-satz{ margin:24px 0 0; color:var(--rot-licht); font-weight:600; font-size:1.1rem; }
+.schritte--kurz li{ padding-top:18px; padding-bottom:18px; }
+.ueber-kurz{ display:grid; gap:28px; align-items:center; }
+.ueber-kurz .portrait{ max-width:280px; }
+.quelle{ font-size:.85rem; color:var(--gedaempft); margin-top:14px; }
+@media (min-width:760px){
+  .schritte--kurz{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:20px; }
+  .schritte--kurz li{ border:0 !important; padding:60px 0 0; }
+  .schritte--kurz li::before{ top:0; }
+  .ueber-kurz{ grid-template-columns:280px minmax(0,1fr); gap:48px; }
+}
+
 /* Druck */
 @media print{ .daumenleiste,nav.sprung,.kopf .btn{ display:none; } }
 </style>
@@ -618,17 +638,14 @@ body.lb-aktiv{ overflow:hidden; }
 
 <nav class="sprung" aria-label="Abschnitte dieser Seite">
   <ul>
-    <li><a href="#problem">Das Problem</a></li>
-    <li><a href="#loesung">Unsere Lösung</a></li>
+    <li><a href="#alles">Alles aus einer Hand</a></li>
     <li><a href="#ablauf">Ablauf</a></li>
     <li><a href="#arbeiten">Arbeiten</a></li>
     <li><a href="#kuechenstudio">Küchenstudio</a></li>
     <li><a href="#trends">Trends 2026</a></li>
     <li><a href="#stimmen">Kundenstimmen</a></li>
-    <li><a href="#ueber-uns">Über uns</a></li>
     <li><a href="#team">Team</a></li>
     <li><a href="#fragen">Fragen</a></li>
-    <li><a href="#checkliste">Checkliste</a></li>
     <li><a href="#termin">Kontakt</a></li>
   </ul>
 </nav>
@@ -645,18 +662,15 @@ body.lb-aktiv{ overflow:hidden; }
     <div>
       <p class="vorzeile">Küchen aus Gosau · fürs ganze Salzkammergut</p>
       <h1>Nicht organisieren. Nur noch einziehen.</h1>
-      <p class="lead">
-        Wir planen, liefern und montieren deine Küche – und kümmern uns um alles drumherum.
-        Maurer, Installateur, Elektriker, Maler: Du hast einen Ansprechpartner
-        statt fünf Baustellen.
-      </p>
+      <p class="lead">Deine Küche – und alle Handwerker drumherum.
+      Ein Ansprechpartner, fertig.</p>
 
       <div class="btn-reihe">
         <a class="btn" href="#termin">Vereinbare dein Beratungsgespräch</a>
-        <a class="btn btn--zweit" href="tel:+43613620022">Oder ruf an: 06136 200 22</a>
+        <a class="btn btn--zweit" href="tel:+43613620022">06136 200 22</a>
       </div>
       <a class="wa-link" href="https://wa.me/436802424007?text=Hallo%20Tischlerei%20Schmez%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20neue%20K%C3%BCche." target="_blank" rel="noopener"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.7 11.7 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.1-1.2-.2-.2-.4-.3z"/></svg>
-        Oder schreib uns schnell auf WhatsApp</a>
+        Oder auf WhatsApp</a>
 
       <!-- Bewertungszahlen von ProvenExpert -->
       <p class="beleg">
@@ -668,8 +682,7 @@ body.lb-aktiv{ overflow:hidden; }
     <figure class="header-bild">
       <img src="bilder/header-01.jpg" width="1200" height="900"
            alt="Küche mit dunklen Fronten, heller Steinarbeitsplatte und sichtbarem Holzbalken an der Decke">
-      <figcaption>Küche mit Holzbalken und Steinarbeitsplatte – von uns geplant und montiert.</figcaption>
-    </figure>
+          </figure>
   </div>
 </section>
 
@@ -678,63 +691,18 @@ body.lb-aktiv{ overflow:hidden; }
      Das Zitat steht wörtlich so im Kunden-Briefing. Bitte nicht glätten –
      genau diese Sprache erkennt die Zielgruppe wieder.
      ==================================================================== -->
-<section class="problem holzgrund" id="problem">
+<section class="problem holzgrund" id="alles">
   <div class="inhalt">
-    <p class="vorzeile">Kennst du das?</p>
-    <h2 class="abschnitt-titel">Du willst eine neue Küche. Keine Baustelle.</h2>
-
-    <blockquote class="zitat-kunde">
-      „Die alte Küche hat uns 25 Jahre lang für die Kinder gedient – jetzt will
-      ich endlich eine, die zu uns passt, und ich hab keine Nerven mehr, mich
-      mit fünf verschiedenen Handwerkern rumzuschlagen.“
-    </blockquote>
-
-    <ul class="folgen">
-      <li>Fünf Firmen, fünf Terminkalender – und keiner davon ist deiner.</li>
-      <li>Der Elektriker wartet auf den Maurer. Der Maler auf den Fliesenleger.</li>
-      <li>Ihr kocht seit Wochen auf der Kochplatte im Wohnzimmer.</li>
-      <li>Und läuft etwas schief, sagt jeder: „Dafür bin ich nicht zuständig.“</li>
-    </ul>
-  </div>
-</section>
-
-<!-- ====================================================================
-     3 · LÖSUNG
-     ==================================================================== -->
-<section class="loesung" id="loesung">
-  <div class="inhalt">
-    <p class="vorzeile">So machen wir das</p>
     <h2 class="abschnitt-titel">Ein Ansprechpartner statt fünf Baustellen.</h2>
-    <p class="lead">
-      Wir verkaufen dir keine Küche und lassen dich dann mit dem Rest allein.
-      Wir nehmen dir das ganze Projekt ab – vom ersten Gespräch bis zu dem Tag,
-      an dem du zum ersten Mal darin kochst.
-    </p>
-
-    <div class="raster raster--3">
-      <div class="karte">
-        <span class="nummer">01</span>
-        <h3>Wir hören zuerst zu</h3>
-        <p>Bevor irgendjemand etwas plant, reden wir. Wie kocht ihr wirklich?
-        Wer steht wo? Was hat euch an der alten Küche jeden Tag geärgert?
-        Daraus wird die Planung – nicht aus einem Katalog.</p>
-      </div>
-      <div class="karte">
-        <span class="nummer">02</span>
-        <h3>Wir holen die anderen Gewerke</h3>
-        <p>Maurer, Installateur, Elektriker, Maler: Wir stimmen die Termine ab,
-        sagen jedem, was er wann braucht, und sind dabei, wenn gearbeitet wird.
-        Du musst niemanden anrufen.</p>
-      </div>
-      <div class="karte">
-        <span class="nummer">03</span>
-        <h3>Und dann geht es schnell</h3>
-        <p>Die Montage selbst dauert drei bis vier Tage – weil vorher alles
-        vorbereitet ist. Danach ist Übergabe: sauber, aufgeräumt, fertig.</p>
-      </div>
-    </div>
+    <ul class="gewerke">
+      <li>Küche</li><li>Maurer</li><li>Installateur</li><li>Elektriker</li>
+      <li>Maler</li><li>Boden</li><li>Türen</li><li>Fenster</li>
+    </ul>
+    <p class="gewerke-satz">Wir koordinieren alle. Du musst niemanden anrufen.</p>
   </div>
 </section>
+
+
 
 <!-- ====================================================================
      4 · ABLAUF
@@ -742,36 +710,14 @@ body.lb-aktiv{ overflow:hidden; }
      ==================================================================== -->
 <section class="ablauf" id="ablauf">
   <div class="inhalt">
-    <p class="vorzeile">Ablauf</p>
-    <h2 class="abschnitt-titel">Was auf dich zukommt – in vier Schritten.</h2>
-    <p class="lead">Damit du weißt, worauf du dich einlässt, bevor du anrufst.</p>
-
-    <ol class="schritte">
-      <li>
-        <h3>Wir schauen uns die Küche an</h3>
-        <p>Am liebsten dort, wo sie hinkommt. Wir nehmen Maß, hören zu und
-        klären, was baulich geht und was nicht.</p>
-      </li>
-      <li>
-        <h3>Du siehst deine Küche, bevor es sie gibt</h3>
-        <p>Maßstabsgetreue Planzeichnungen und 3D-Ansichten. So lange, bis es
-        passt – Änderungen in der Planung kosten nichts außer Zeit.</p>
-      </li>
-      <li>
-        <h3>Wir übernehmen die Koordination</h3>
-        <p>Wir holen die anderen Gewerke, legen die Reihenfolge fest und sind
-        auf der Baustelle. Du bekommst einen Termin, keine Telefonliste.</p>
-      </li>
-      <li>
-        <h3>Montage in drei bis vier Tagen</h3>
-        <p>Sauber und staubarm gearbeitet, danach gemeinsame Übergabe. Und wenn
-        später noch etwas ist: Wir gehen ans Telefon.</p>
-      </li>
+    <p class="vorzeile">So läuft's</p>
+    <h2 class="abschnitt-titel">In vier Schritten zur neuen Küche.</h2>
+    <ol class="schritte schritte--kurz">
+      <li><h3>Anschauen</h3><p>Wir kommen zu dir und nehmen Maß.</p></li>
+      <li><h3>Planen</h3><p>Du siehst deine Küche in 3D – bis alles passt.</p></li>
+      <li><h3>Koordinieren</h3><p>Wir holen alle Handwerker.</p></li>
+      <li><h3>Einziehen</h3><p>Montage in 3–4 Tagen. Sauber übergeben.</p></li>
     </ol>
-
-    <div class="btn-reihe">
-      <a class="btn" href="#termin">Vereinbare dein Beratungsgespräch</a>
-    </div>
   </div>
 </section>
 
@@ -787,7 +733,6 @@ body.lb-aktiv{ overflow:hidden; }
   <div class="inhalt">
     <p class="vorzeile">Unsere Arbeiten</p>
     <h2 class="abschnitt-titel">Küchen, in denen jeden Tag gekocht wird.</h2>
-    <p class="lead">Ein paar Projekte aus Gosau, Bad Ischl und Abtenau – jede anders, alle von uns geplant, koordiniert und montiert.</p>
 
     <div class="galerie">
       <figure>
@@ -870,19 +815,10 @@ body.lb-aktiv{ overflow:hidden; }
   <div class="inhalt studio-inner">
     <div>
       <p class="vorzeile">Bald neu in Gosau</p>
-      <h2 class="abschnitt-titel">Unser Küchenstudio. Zum Anschauen, Angreifen, Ausprobieren.</h2>
-      <p class="lead">Eine Küche kauft man nicht aus dem Katalog. Ab Frühjahr 2027
-      kannst du bei uns Fronten, Arbeitsplatten und Geräte selbst in die Hand
-      nehmen – und in Ruhe mit uns planen, bei einem Kaffee.</p>
-      <ul>
-        <li>Musterküchen zum Anschauen und Ausprobieren</li>
-        <li>Fronten, Griffe und Arbeitsplatten im Original</li>
-        <li>Planung am großen Bildschirm, in 3D</li>
-        <li>Beratung mit Termin – damit wir ganz für dich da sind</li>
-      </ul>
+      <h2 class="abschnitt-titel">Unser Küchenstudio in Gosau.</h2>
+      <p class="lead">Ab Frühjahr 2027: Fronten, Arbeitsplatten und Geräte selbst angreifen – und in Ruhe planen.</p>
       <p class="adresse"><strong>Gosauseestraße 57, 4824 Gosau</strong></p>
       <div class="btn-reihe">
-        <a class="btn" href="#termin">Beratungsgespräch vereinbaren</a>
         <a class="btn btn--zweit" href="https://wa.me/436802424007?text=Hallo%2C%20bitte%20gebt%20mir%20Bescheid%2C%20wenn%20das%20K%C3%BCchenstudio%20er%C3%B6ffnet."
            target="_blank" rel="noopener">Zur Eröffnung einladen lassen</a>
       </div>
@@ -905,11 +841,7 @@ body.lb-aktiv{ overflow:hidden; }
 <section id="trends">
   <div class="inhalt">
     <p class="vorzeile">Küchentrends 2026</p>
-    <h2 class="abschnitt-titel">Frisch von Häcker – und bei uns zu haben.</h2>
-    <p class="lead">Wir waren bei Häcker und haben uns die neuen Küchen 2026
-    angeschaut. Ein paar Ideen, die uns gefallen haben – von der Insel in
-    Steinoptik bis zum Hauswirtschaftsraum, in dem die Waschmaschine endlich
-    auf Arbeitshöhe steht. Planen und montieren können wir dir jede davon.</p>
+    <h2 class="abschnitt-titel">Neu von Häcker – bei uns zu haben.</h2>
     <div class="galerie">
       <figure>
         <img src="bilder/trends/gold-shine-star.jpg" width="1400" height="1050" loading="lazy"
@@ -957,9 +889,7 @@ body.lb-aktiv{ overflow:hidden; }
         <figcaption>Hauswirtschaftsraum – Waschmaschine auf Arbeitshöhe</figcaption>
       </figure>
     </div>
-    <p class="lead" style="margin-top:22px">Fotos: Häcker-Ausstellung 2026.
-    Ab Frühjahr 2027 kannst du vieles davon in unserem Küchenstudio in Gosau
-    selbst angreifen.</p>
+    <p class="quelle">Fotos: Häcker-Ausstellung 2026</p>
   </div>
 </section>
 
@@ -977,21 +907,13 @@ body.lb-aktiv{ overflow:hidden; }
       <span class="sterne" aria-hidden="true">★★★★★</span>
       <span>von 5 – aus 66 Bewertungen auf ProvenExpert</span>
     </div>
-    <p class="lead">Nicht von uns geschrieben. Nachlesbar, mit Namen.</p>
-
-    <div class="raster raster--2">
+    
+    <div class="raster raster--3">
       <blockquote class="stimme">
         <p>„TOP Beratung, tadellose Ausführung und Baustellenbegleitung bis zum
         Übergabetermin. Allem in Allem ein sehr gutes Unternehmen wo man sich
         super gut aufgehoben fühlt.“</p>
         <footer>Uwe H. · 5 von 5</footer>
-      </blockquote>
-
-      <blockquote class="stimme">
-        <p>„Terminverlässlichkeit, sehr professionelle und rasche Arbeit der
-        Monteure, sehr gutes Preis-Leistungsverhältnis, wir sind rundum
-        zufrieden.“</p>
-        <footer>Karlheinz U. · 5 von 5</footer>
       </blockquote>
 
       <blockquote class="stimme">
@@ -1007,10 +929,7 @@ body.lb-aktiv{ overflow:hidden; }
       </blockquote>
     </div>
 
-    <p class="auszeichnung">
-      <strong>2023 ausgezeichnet als wertschätzender Arbeitgeber.</strong>
-      Wer seine Leute gut behandelt, schickt dir auch die Richtigen ins Haus.
-    </p>
+    <p class="auszeichnung"><strong>2023 ausgezeichnet als wertschätzender Arbeitgeber.</strong></p>
 
     <div class="btn-reihe">
       <a class="btn" href="#termin">Vereinbare dein Beratungsgespräch</a>
@@ -1023,34 +942,16 @@ body.lb-aktiv{ overflow:hidden; }
      >>> HIER TEXT ÄNDERN <<<
      ==================================================================== -->
 <section class="ueber" id="ueber-uns">
-  <div class="inhalt">
-    <p class="vorzeile">Wer das macht</p>
-    <h2 class="abschnitt-titel">Martin Schwaighofer, Tischlermeister.</h2>
-
-    <div class="raster raster--2">
-      <div>
-        <p>Angefangen hat er als Tischlerlehrling in Gosau. Danach ging es
-        hinaus: Hamburg, Kiel, Neuseeland, San Francisco. Und irgendwann wieder
-        zurück ins Gosautal – mit dem Wunsch, es selbst zu machen.</p>
-
-        <p>Gedacht war das als Ein-Mann-Betrieb. Es kamen mehr Aufträge, als
-        einer schaffen konnte. Heute sind wir ein junges Team aus Gosau, das
-        Küchen, Möbel und Bäder plant und montiert – und dabei den ganzen
-        Umbau mitdenkt, nicht nur das Möbelstück.</p>
-
-        <p><strong>Was uns wichtig ist:</strong> ehrlich sagen, was geht und was
-        nicht. Handschlagqualität statt Kleingedrucktem. Und Holz behandeln wie
-        das, was es ist – ein lebendiger Werkstoff, aus dem Lebensräume werden.</p>
-      </div>
-
-      <div>
-        <!-- >>> FOTO AUSTAUSCHEN <<< Portrait von schmez.at übernommen.
-             Ein Foto auf der Baustelle wäre stärker,
-             weil es das Handwerk zeigt. Dann hier den Dateinamen ändern. -->
-        <img class="portrait" src="bilder/martin-schwaighofer.jpg"
-             width="800" height="1000" loading="lazy"
-             alt="Martin Schwaighofer, Tischlermeister und Inhaber der Tischlerei Schmez">
-      </div>
+  <div class="inhalt ueber-kurz">
+    <img class="portrait" src="bilder/martin-schwaighofer.jpg"
+         width="800" height="1000" loading="lazy"
+         alt="Martin Schwaighofer, Tischlermeister und Chef der Schmez Tischlerei">
+    <div>
+      <p class="vorzeile">Wer dahinter steht</p>
+      <h2 class="abschnitt-titel">Martin Schwaighofer, Tischlermeister.</h2>
+      <p class="lead">Gosauer Tischler, unterwegs in Hamburg, Neuseeland und
+      San Francisco – und zurück im Gosautal. Ehrlich sagen, was geht.
+      Handschlagqualität statt Kleingedrucktem.</p>
     </div>
   </div>
 </section>
@@ -1070,28 +971,27 @@ body.lb-aktiv{ overflow:hidden; }
   <div class="inhalt">
     <p class="vorzeile">Das Team</p>
     <h2 class="abschnitt-titel">Die Leute, die zu dir ins Haus kommen.</h2>
-    <p class="lead">Keine Subfirma, die du nie gesehen hast. Wer dich berät, kennt
-    deine Küche – und wer sie montiert, weiß, was besprochen wurde.</p>
+    <p class="lead">Wer dich berät, kennt deine Küche. Wer sie montiert, auch.</p>
     <ul class="team-raster">
       <li class="person">
         <div class="foto"><span aria-hidden="true">MS</span>
           <img src="bilder/team/martin.jpg" alt="Martin Schwaighofer" loading="lazy" onerror="this.remove()"></div>
-        <div class="text"><h3>Martin Schwaighofer</h3><p>Tischlermeister und Chef – plant, berät, hält alles zusammen</p></div>
+        <div class="text"><h3>Martin Schwaighofer</h3><p>Chef, Planung</p></div>
       </li>
       <li class="person">
         <div class="foto"><span aria-hidden="true">HS</span>
           <img src="bilder/team/heike.jpg" alt="Heike Schwaighofer" loading="lazy" onerror="this.remove()"></div>
-        <div class="text"><h3>Heike Schwaighofer</h3><p>Büro und Finanzen – sorgt dafür, dass im Hintergrund alles passt</p></div>
+        <div class="text"><h3>Heike Schwaighofer</h3><p>Büro und Finanzen</p></div>
       </li>
       <li class="person">
         <div class="foto"><span aria-hidden="true">AS</span>
           <img src="bilder/team/andi.jpg" alt="Andreas Schmaranzer" loading="lazy" onerror="this.remove()"></div>
-        <div class="text"><h3>Andreas Schmaranzer</h3><p>Beratung und Projektleitung – begleitet dich vom Aufmaß bis zur Rechnung</p></div>
+        <div class="text"><h3>Andreas Schmaranzer</h3><p>Beratung und Projektleitung</p></div>
       </li>
       <li class="person">
         <div class="foto"><span aria-hidden="true">MT</span>
           <img src="bilder/team/martina.jpg" alt="Martina Treichl" loading="lazy" onerror="this.remove()"></div>
-        <div class="text"><h3>Martina Treichl</h3><p>Büro und Planung – ruft zurück, wenn du anrufst</p></div>
+        <div class="text"><h3>Martina Treichl</h3><p>Büro und Planung</p></div>
       </li>
       <li class="person">
         <div class="foto"><span aria-hidden="true">DP</span>
@@ -1127,12 +1027,7 @@ body.lb-aktiv{ overflow:hidden; }
 <section class="partner" id="partner">
   <div class="inhalt">
     <p class="vorzeile">Womit wir arbeiten</p>
-    <h2 class="abschnitt-titel">Wir arbeiten mit Herstellern, auf die Verlass ist.</h2>
-    <p class="lead">
-      Küchen, Geräte, Beschattung, Fenster, Türen, Böden: Wir planen und
-      montieren mit Marken, bei denen wir wissen, wen wir anrufen – auch dann
-      noch, wenn später einmal etwas ist.
-    </p>
+    <h2 class="abschnitt-titel">Marken, auf die Verlass ist.</h2>
 
     <ul class="logos">
       <li><img src="bilder/partner/haecker.png" width="1197" height="380" loading="lazy" alt="Häcker Küchen"></li>
@@ -1159,137 +1054,21 @@ body.lb-aktiv{ overflow:hidden; }
 <section id="fragen">
   <div class="inhalt">
     <p class="vorzeile">Kurz gefragt</p>
-    <h2 class="abschnitt-titel">Das wollen die meisten vorher wissen.</h2>
-
-    <div style="margin-top:34px">
-      <details class="frage">
-        <summary>Wie lange haben wir keine Küche?</summary>
-        <p>Die Montage selbst dauert drei bis vier Tage. Wie lange die Phase
-        davor dauert, hängt davon ab, was baulich passiert – das sagen wir dir
-        nach dem ersten Termin verbindlich, nicht geschätzt.</p>
-      </details>
-
-      <details class="frage">
-        <summary>Müssen wir die anderen Handwerker selbst suchen?</summary>
-        <p>Nein. Genau das ist unser Punkt. Maurer, Installateur, Elektriker und
-        Maler koordinieren wir. Du kannst auch deine eigenen Leute behalten –
-        dann stimmen wir uns mit denen ab.</p>
-      </details>
-
-      <details class="frage">
-        <summary>Wo arbeitet ihr?</summary>
-        <p>Rund ums Salzkammergut, unser Sitz ist in Gosau. Wenn du unsicher
-        bist, ob du noch im Gebiet liegst: ruf einfach an, dann wissen wir es
-        in einer Minute.</p>
-      </details>
-
-      <details class="frage">
-        <summary>Was kostet eine Küche bei euch?</summary>
-        <p>Das kommt darauf an, was du willst – und wir raten hier keine Zahl
-        ins Blaue. Nach dem ersten Gespräch bekommst du ein Angebot, in dem
-        alles steht: Küche, Montage und die Arbeiten drumherum. Ohne Posten,
-        die später noch dazukommen.</p>
-      </details>
-
-      <details class="frage">
-        <summary>Was passiert beim Beratungsgespräch?</summary>
-        <p>Wir reden. Über eure Küche, euren Alltag, euren Zeitplan. Kein
-        Verkaufsgespräch – eine Kundin hat das mal so beschrieben:
-        „Kein aufdringlicher Verkauf.“ Genau so halten wir es.</p>
-      </details>
+    <h2 class="abschnitt-titel">Was die meisten wissen wollen.</h2>
+    <div style="margin-top:28px">
+      <details class="frage"><summary>Wie lange haben wir keine Küche?</summary>
+        <p>Die Montage dauert drei bis vier Tage.</p></details>
+      <details class="frage"><summary>Müssen wir Handwerker selbst suchen?</summary>
+        <p>Nein. Das machen wir – oder wir stimmen uns mit deinen Leuten ab.</p></details>
+      <details class="frage"><summary>Wo arbeitet ihr?</summary>
+        <p>Rund ums Salzkammergut, Sitz in Gosau.</p></details>
+      <details class="frage"><summary>Was kostet eine Küche?</summary>
+        <p>Nach dem ersten Gespräch bekommst du ein Angebot mit allem drin – ohne spätere Extras.</p></details>
     </div>
   </div>
 </section>
 
-<!-- ====================================================================
-     9 · KÜCHEN-CHECKLISTE – der kleine Schritt für alle, die noch nicht
-     gleich anrufen wollen. Abgefragt wird bewusst nur die E-Mail-Adresse.
 
-     >>> HIER EMPFÄNGER-ADRESSE ÄNDERN <<<
-     Sie steht genau einmal, im action des Formulars weiter unten:
-     action="https://formsubmit.co/office@schmez.at"
-
-     >>> HIER LINK ZUR CHECKLISTE ÄNDERN <<<
-     Auch genau einmal: im Text der automatischen Antwortmail, im
-     versteckten Feld _autoresponse. Dort muss die Adresse der fertigen
-     PDF-Datei stehen, sonst bekommt der Besucher einen toten Link.
-
-     WIE DER VERSAND LÄUFT: FormSubmit (formsubmit.co) nimmt das Formular
-     entgegen, schickt den Eintrag als E-Mail an die Adresse oben und dem
-     Besucher automatisch die Antwortmail mit dem Link. Kein Konto, kein
-     eigener Server, kostenlos. Beim allerersten Absenden schickt
-     FormSubmit eine Bestätigungsmail an office@schmez.at – erst nach dem
-     Klick darauf kommen die Einträge tatsächlich an.
-     ==================================================================== -->
-<section class="checkliste" id="checkliste">
-  <div class="inhalt checkliste-inner">
-    <div>
-      <p class="vorzeile">Gratis, ohne Gegenleistung</p>
-      <h2 class="abschnitt-titel">Die Küchen-Checkliste: 12 Fragen vor der
-      Planung.</h2>
-      <p class="lead">Noch nicht so weit für ein Gespräch? Dann nimm die Fragen
-      mit, die wir im Beratungstermin ohnehin stellen. Zwei Seiten zum
-      Ausdrucken – in Ruhe zu Hause durchgehen, bevor du dich irgendwo
-      festlegst.</p>
-
-      <ul>
-        <li>Woran Küchenplanungen in der Sanierung am häufigsten scheitern.</li>
-        <li>Welche Maße und Anschlüsse du vorher wissen solltest.</li>
-        <li>Was in einem Angebot stehen muss, damit später nichts dazukommt.</li>
-      </ul>
-    </div>
-
-    <div class="karte">
-      <h3>Checkliste anfordern</h3>
-      <p>Eine Zeile ausfüllen, fertig. Mehr als deine E-Mail-Adresse brauchen
-      wir dafür nicht.</p>
-
-      <!-- novalidate: die Fehlermeldung kommt weiter unten aus dem Skript,
-           in derselben Sprache und Optik wie beim Anfrageformular. -->
-      <form class="formular" id="checkliste-formular" method="POST" novalidate
-            action="https://formsubmit.co/office@schmez.at">
-
-        <div class="feld">
-          <label for="ck-email">Deine E-Mail-Adresse</label>
-          <input id="ck-email" name="email" type="email" autocomplete="email"
-                 placeholder="name@beispiel.at" required
-                 aria-describedby="ck-fehler ck-datenschutz">
-          <p class="fehler" id="ck-fehler">Bitte trag eine gültige
-          E-Mail-Adresse ein – sonst können wir dir die Checkliste nicht
-          schicken.</p>
-        </div>
-
-        <!-- Einstellungen für FormSubmit. Der Besucher sieht davon nichts. -->
-        <input type="hidden" name="_subject"
-               value="Küchen-Checkliste angefordert">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
-        <!-- >>> HIER LINK ZUR CHECKLISTE ÄNDERN <<< (die einzige Stelle) -->
-        <input type="hidden" name="_autoresponse"
-               value="Danke für dein Interesse! Hier ist deine Küchen-Checkliste mit den 12 Fragen vor der Planung: https://www.schmez.at/kuechen-checkliste.pdf – Wenn du dazu etwas fragen willst, antworte einfach auf diese E-Mail oder ruf an: 06136 200 22. Herzliche Grüße, Schmez Tischlerei GmbH, Austraße 22, 4824 Gosau">
-        <!-- Honigtopf gegen Werbe-Roboter: Menschen sehen das Feld nicht,
-             Roboter füllen es aus – dann wirft FormSubmit den Eintrag weg. -->
-        <input type="text" name="_honey" tabindex="-1" autocomplete="off"
-               aria-hidden="true" style="display:none">
-
-        <button class="btn" id="ck-knopf" type="submit" style="width:100%">
-          Checkliste per E-Mail bekommen
-        </button>
-
-        <p class="datenschutz-hinweis" id="ck-datenschutz">
-          Wir speichern nur deine E-Mail-Adresse und verwenden sie
-          ausschließlich, um dir die Checkliste zu schicken – kein Newsletter,
-          keine Werbung, keine Weitergabe. Der Versand läuft über den
-          Formulardienst FormSubmit. Näheres im
-          <a href="#datenschutz">Datenschutz</a>.
-        </p>
-
-        <!-- Rückmeldung an den Besucher: Sichtbarkeit des Systemstatus -->
-        <p class="status" id="ck-status" role="status" aria-live="polite"></p>
-      </form>
-    </div>
-  </div>
-</section>
 
 <!-- ====================================================================
     10 · TERMIN UND KONTAKT – die wichtigste Stelle der Seite
@@ -1301,11 +1080,7 @@ body.lb-aktiv{ overflow:hidden; }
     <div>
       <p class="vorzeile">Der nächste Schritt</p>
       <h2>Vereinbare dein Beratungsgespräch</h2>
-      <p class="lead">
-        Schreib uns kurz, worum es geht. Wir melden uns innerhalb von zwei
-        Werktagen und machen einen Termin aus – unverbindlich und ohne
-        Verkaufsgespräch.
-      </p>
+      <p class="lead">Wir melden uns innerhalb von zwei Werktagen.</p>
 
       <form class="formular" id="anfrage" novalidate>
         <div class="zeile">
@@ -1455,18 +1230,6 @@ body.lb-aktiv{ overflow:hidden; }
         ausgefüllten Nachricht – abgeschickt wird sie erst, wenn du das dort
         selbst tust. Deine Angaben erreichen uns also auf demselben Weg wie
         eine normale E-Mail.</p>
-
-        <p><strong>Küchen-Checkliste:</strong> Für die Checkliste fragen wir
-        nur deine E-Mail-Adresse ab – nichts sonst. Wenn du das Formular
-        abschickst, geht die Adresse an den Formulardienst FormSubmit
-        (formsubmit.co). Der Dienst leitet sie als E-Mail an uns weiter und
-        schickt dir automatisch die Antwort mit der Checkliste. Es handelt
-        sich um einen Drittanbieter; die Verarbeitung kann dabei auch
-        außerhalb der EU stattfinden. Wir verwenden deine Adresse
-        ausschließlich für den Versand der Checkliste und eine allfällige
-        Rückfrage dazu – wir schicken dir keinen Newsletter, keine Werbung
-        und geben die Adresse nicht weiter. Eine Zeile an office@schmez.at
-        genügt, und wir löschen sie.</p>
 
         <p><strong>WhatsApp, Facebook, Instagram:</strong> Auf dieser Seite
         sind diese Dienste nur verlinkt, nicht eingebunden. Erst wenn du
