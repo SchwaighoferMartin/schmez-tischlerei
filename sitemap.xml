@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.schmez.at/</loc><lastmod>2026-11-20</lastmod></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://www.schmez.at/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <image:image><image:loc>https://www.schmez.at/bilder/header-01.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.schmez.at/bilder/bad-gosau.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.schmez.at/bilder/gastro-badischl.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.schmez.at/bilder/kueche-abtenau.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.schmez.at/bilder/kueche-badischl-hochglanz.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.schmez.at/bilder/kueche-badischl-landhaus.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.schmez.at/bilder/kueche-badischl-weiss.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.schmez.at/bilder/kueche-gosau-altholz.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.schmez.at/bilder/kueche-gosau-eiche.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.schmez.at/bilder/kueche-gosau-insel.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.schmez.at/bilder/kueche-gosau-kachelofen.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.schmez.at/bilder/kueche-gosau-salbei.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.schmez.at/bilder/moebel09.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.schmez.at/bilder/partner/blanco.png</image:loc></image:image>
+    <image:image><image:loc>https://www.schmez.at/bilder/partner/bosch.png</image:loc></image:image>
+    <image:image><image:loc>https://www.schmez.at/bilder/partner/haecker.png</image:loc></image:image>
+    <image:image><image:loc>https://www.schmez.at/bilder/trends/eiche-elegant.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.schmez.at/bilder/trends/gold-shine-star.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.schmez.at/bilder/trends/hauswirtschaftsraum.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.schmez.at/bilder/trends/holzoptik.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.schmez.at/bilder/trends/klein.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.schmez.at/bilder/trends/landhaus.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.schmez.at/bilder/trends/modern.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.schmez.at/bilder/trends/sideboard.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.schmez.at/bilder/trends/stein.jpg</image:loc></image:image>
+  </url>
 </urlset>
