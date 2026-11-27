@@ -1405,12 +1405,22 @@ var EMPFAENGER = "office@schmez.at";
         "wir melden uns innerhalb von zwei Werktagen.";
     })
     .catch(function () {
+      /* Versand hat nicht geklappt: Angaben per WhatsApp oder E-Mail
+         weiterschicken lassen, damit keine Anfrage verloren geht. */
       knopf.disabled = false;
       knopf.textContent = knopfText;
+      var nachricht = "Anfrage Beratungsgespräch\nName: " + name + "\nOrt: " + (ort || "-") +
+                 "\nKontakt: " + kontakt + "\nPasst am besten: " + zeit +
+                 "\nWorum es geht: " + (text || "-");
+      var wa = "https://wa.me/436802424007?text=" + encodeURIComponent(nachricht);
+      var mail = "mailto:" + EMPFAENGER + "?subject=" + encodeURIComponent(daten._subject) +
+                 "&body=" + encodeURIComponent(nachricht);
       status.className = "status sichtbar";
-      status.innerHTML = "Das hat leider nicht geklappt. Ruf uns einfach an: " +
-        "<a href=\"tel:+43613620022\">06136 200 22</a> oder schreib auf " +
-        "<a href=\"https://wa.me/436802424007\" target=\"_blank\" rel=\"noopener\">WhatsApp</a>.";
+      status.innerHTML = "<b>Das automatische Senden hat gerade nicht geklappt.</b><br>" +
+        "Schick uns deine Anfrage einfach mit einem Tipp – alles ist schon ausgefüllt: " +
+        "<a href=\"" + wa + "\" target=\"_blank\" rel=\"noopener\">per WhatsApp</a> oder " +
+        "<a href=\"" + mail + "\">per E-Mail</a>. Oder ruf an: " +
+        "<a href=\"tel:+43613620022\">06136 200 22</a>.";
     });
   });
 })();

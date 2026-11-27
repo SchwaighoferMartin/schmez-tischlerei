@@ -452,10 +452,23 @@ var EMPFAENGER = "office@schmez.at";
       balken.style.width = "100%"; info.textContent = "";
     })
     .catch(function () {
+      /* Versand hat nicht geklappt (z. B. Formular noch nicht aktiviert oder
+         kein Netz). Damit keine Anfrage verloren geht: dieselben Angaben mit
+         einem Tipp per WhatsApp oder E-Mail schicken lassen. */
       knopf.disabled = false; knopf.textContent = "Kostenlosen Rückruf anfordern";
+      var text = "Küchen-Check von " + daten["Name"] + "\n" +
+        Object.keys(daten).filter(function (k) { return k.charAt(0) !== "_" && k !== "Quelle"; })
+          .map(function (k) { return k + ": " + daten[k]; }).join("\n");
+      var wa = "https://wa.me/436802424007?text=" + encodeURIComponent(text);
+      var mail = "mailto:" + EMPFAENGER + "?subject=" + encodeURIComponent(daten._subject) +
+                 "&body=" + encodeURIComponent(text);
       status.className = "status sichtbar";
-      status.innerHTML = "Das hat leider nicht geklappt. Ruf uns einfach an: <a href=\"tel:+43613620022\">06136 200 22</a> " +
-        "oder schreib auf <a href=\"https://wa.me/436802424007\" target=\"_blank\" rel=\"noopener\">WhatsApp</a>.";
+      status.innerHTML = "<b>Das automatische Senden hat gerade nicht geklappt.</b><br>" +
+        "Schick uns deine Antworten einfach mit einem Tipp – alles ist schon ausgefüllt:" +
+        "<span style=\"display:flex;flex-wrap:wrap;gap:10px;margin-top:12px\">" +
+        "<a class=\"btn btn--wa\" href=\"" + wa + "\" target=\"_blank\" rel=\"noopener\">Per WhatsApp senden</a>" +
+        "<a class=\"btn\" href=\"" + mail + "\">Per E-Mail senden</a></span>" +
+        "<span style=\"display:block;margin-top:10px\">Oder ruf an: <a href=\"tel:+43613620022\">06136 200 22</a></span>";
     });
   });
 
