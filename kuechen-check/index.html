@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="de-AT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Küchen-Check – in 60 Sekunden zur Wunschküche | Schmez Tischlerei</title>
+<meta name="description" content="Beantworte 6 kurze Fragen zu deiner neuen Küche – wir melden uns innerhalb von 2 Werktagen. Schmez Tischlerei, Gosau – fürs ganze Salzkammergut.">
+<!-- Funnel-Seite für Werbung: nicht in Google listen, Links aber verfolgen -->
+<meta name="robots" content="noindex, follow">
+<link rel="icon" href="../favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<meta name="theme-color" content="#9B2321">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.schmez.at/kuechen-check/">
+<meta property="og:title" content="Küchen-Check: In 60 Sekunden zur Wunschküche">
+<meta property="og:description" content="6 kurze Fragen – wir melden uns innerhalb von 2 Werktagen. Nicht organisieren. Nur noch einziehen.">
+<meta property="og:image" content="https://www.schmez.at/bilder/kueche-gosau-insel.jpg">
+<meta property="og:locale" content="de_AT">
+<style>
+/* ======================================================================
+   KÜCHEN-CHECK – Funnel der Schmez Tischlerei
+   Farben und Schrift wie auf der Homepage.
+   ====================================================================== */
+:root{
+  --rot:#9B2321; --rot-dunkel:#7E1C1A; --rot-hell:#F3DEDC;
+  --papier:#F7F3EC; --weiss:#FFFFFF; --tinte:#2B2420; --gedaempft:#5C4F45; --linie:#DED5C8;
+  --schrift:"Swis721 BT","Swiss 721 BT","Helvetica Neue",Helvetica,Arial,"Segoe UI",system-ui,sans-serif;
+  --radius:6px;
+}
+*,*::before,*::after{ box-sizing:border-box; }
+html,body{ margin:0; }
+body{ font-family:var(--schrift); background:var(--papier); color:var(--tinte); line-height:1.5;
+  -webkit-font-smoothing:antialiased; min-height:100vh; display:flex; flex-direction:column; }
+a{ color:var(--rot); }
+img{ max-width:100%; display:block; }
+button{ font:inherit; }
+
+.kopf{ background:var(--weiss); border-bottom:1px solid var(--linie); }
+.kopf-inner{ max-width:960px; margin:0 auto; padding:10px 18px; display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.kopf img{ height:46px; width:auto; }
+.kopf a.tel{ font-weight:700; text-decoration:none; color:var(--tinte); white-space:nowrap; }
+
+main{ flex:1; width:100%; max-width:960px; margin:0 auto; padding:22px 18px 40px; }
+
+/* Fortschritt */
+.fortschritt{ height:8px; background:var(--linie); border-radius:8px; overflow:hidden; margin:4px 0 8px; }
+.fortschritt span{ display:block; height:100%; width:0; background:var(--rot); transition:width .35s ease; }
+.schritt-info{ font-size:.85rem; color:var(--gedaempft); margin:0 0 18px; display:flex; justify-content:space-between; }
+
+/* Schritte */
+.schritt{ display:none; animation:rein .35s ease; }
+.schritt.aktiv{ display:block; }
+@keyframes rein{ from{ opacity:0; transform:translateY(8px);} to{ opacity:1; transform:none; } }
+h1,h2{ line-height:1.15; margin:0 0 10px; }
+h1{ font-size:clamp(2rem,6vw,3.2rem); }
+h2{ font-size:clamp(1.45rem,4.5vw,2rem); }
+.unter{ color:var(--gedaempft); margin:0 0 22px; font-size:1.05rem; }
+
+/* Start */
+.start{ display:grid; gap:24px; align-items:center; }
+.start img{ border-radius:var(--radius); aspect-ratio:4/3; object-fit:cover; width:100%; }
+.vorzeile{ color:var(--rot); font-weight:700; letter-spacing:.12em; text-transform:uppercase; font-size:.8rem; margin:0 0 10px; }
+.punkte{ list-style:none; padding:0; margin:18px 0 24px; display:grid; gap:8px; }
+.punkte li{ padding-left:28px; position:relative; }
+.punkte li::before{ content:"\2713"; position:absolute; left:0; color:var(--rot); font-weight:700; }
+
+/* Auswahl-Kacheln */
+.kacheln{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+.kachel{ position:relative; background:var(--weiss); border:2px solid var(--linie); border-radius:var(--radius);
+  padding:0; text-align:left; cursor:pointer; overflow:hidden; color:var(--tinte);
+  transition:border-color .15s, transform .15s, box-shadow .15s; }
+.kachel:hover{ border-color:var(--rot); transform:translateY(-2px); box-shadow:0 6px 18px rgba(43,36,32,.10); }
+.kachel:focus-visible{ outline:3px solid var(--rot); outline-offset:2px; }
+.kachel img{ width:100%; aspect-ratio:4/3; object-fit:cover; }
+.kachel .text{ display:block; padding:12px 14px; font-weight:700; }
+.kachel .klein{ display:block; font-weight:400; font-size:.88rem; color:var(--gedaempft); margin-top:2px; }
+.kachel[aria-pressed="true"]{ border-color:var(--rot); background:var(--rot-hell); }
+.kachel[aria-pressed="true"]::after{ content:"\2713"; position:absolute; top:8px; right:8px; width:30px; height:30px;
+  border-radius:50%; background:var(--rot); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; }
+.kacheln--text .kachel{ padding:16px 16px; font-weight:700; min-height:64px; display:flex; align-items:center; }
+.kacheln--text .kachel .klein{ margin-top:0; }
+
+/* Knöpfe */
+.btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; background:var(--rot); color:#fff; border:0;
+  border-radius:var(--radius); padding:16px 26px; font-weight:700; font-size:1.05rem; cursor:pointer; text-decoration:none; min-height:54px; }
+.btn:hover{ background:var(--rot-dunkel); }
+.btn:disabled{ opacity:.5; cursor:not-allowed; }
+.btn--breit{ width:100%; }
+.btn--wa{ background:#1F7A4D; } .btn--wa:hover{ background:#185F3C; }
+.navi{ display:flex; justify-content:space-between; align-items:center; gap:12px; margin-top:22px; }
+.zurueck{ background:none; border:0; color:var(--gedaempft); text-decoration:underline; cursor:pointer; padding:10px 0; }
+
+/* Formular */
+.feld{ margin-bottom:16px; }
+.feld label{ display:block; font-weight:700; margin-bottom:6px; }
+.feld .hinweis{ font-weight:400; color:var(--gedaempft); }
+.feld input,.feld select,.feld textarea{ width:100%; padding:14px; border:1px solid var(--linie); border-radius:var(--radius);
+  background:var(--weiss); font:inherit; color:var(--tinte); }
+.feld textarea{ min-height:90px; }
+.feld input:focus,.feld select:focus,.feld textarea:focus{ outline:3px solid var(--rot-hell); border-color:var(--rot); }
+.feld.ist-fehler input{ border-color:var(--rot); background:#FFF7F6; }
+.feld .fehler{ display:none; color:var(--rot); font-size:.9rem; margin:6px 0 0; }
+.feld.ist-fehler .fehler{ display:block; }
+.honig{ position:absolute; left:-9999px; }
+.datenschutz{ font-size:.85rem; color:var(--gedaempft); margin:12px 0 0; }
+.status{ display:none; margin-top:14px; padding:12px 14px; border-radius:var(--radius); background:var(--rot-hell); }
+.status.sichtbar{ display:block; }
+.zusammenfassung{ background:var(--weiss); border:1px solid var(--linie); border-radius:var(--radius); padding:14px 16px; margin-bottom:20px; font-size:.95rem; }
+.zusammenfassung dt{ font-weight:700; } .zusammenfassung dd{ margin:0 0 8px; color:var(--gedaempft); }
+
+/* Danke */
+.danke{ display:grid; gap:24px; align-items:center; }
+.danke img{ border-radius:50%; width:180px; height:180px; object-fit:cover; object-position:top; border:4px solid var(--weiss); box-shadow:0 6px 20px rgba(43,36,32,.15); }
+
+.vertrauen{ display:flex; flex-wrap:wrap; gap:8px 18px; margin-top:24px; font-size:.9rem; color:var(--gedaempft); }
+.vertrauen b{ color:var(--tinte); }
+.sterne{ color:#C8961E; letter-spacing:2px; }
+
+footer{ text-align:center; font-size:.85rem; color:var(--gedaempft); padding:18px; border-top:1px solid var(--linie); background:var(--weiss); }
+footer a{ color:var(--gedaempft); }
+
+@media (min-width:720px){
+  .kacheln{ grid-template-columns:repeat(4,minmax(0,1fr)); }
+  .kacheln--3{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .kacheln--text{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .start{ grid-template-columns:1fr 1fr; gap:40px; }
+  .danke{ grid-template-columns:200px 1fr; gap:36px; }
+  .formular-raster{ display:grid; grid-template-columns:1fr 1fr; gap:0 18px; }
+}
+@media (prefers-reduced-motion:reduce){ *{ animation:none !important; transition:none !important; } }
+</style>
+</head>
+<body>
+
+<header class="kopf">
+  <div class="kopf-inner">
+    <a href="../"><img src="../bilder/logo-schmez-klein.png" alt="Schmez Tischlerei – zur Startseite" width="320" height="208"></a>
+    <a class="tel" href="tel:+43613620022">📞 06136 200 22</a>
+  </div>
+</header>
+
+<main>
+  <div class="fortschritt" aria-hidden="true"><span id="balken"></span></div>
+  <p class="schritt-info" id="schritt-info" aria-live="polite"></p>
+
+  <form id="check" novalidate>
+
+  <!-- 0 · START -->
+  <section class="schritt aktiv" data-schritt="0">
+    <div class="start">
+      <div>
+        <p class="vorzeile">Küchen-Check · 60 Sekunden</p>
+        <h1>Nicht organisieren. Nur noch einziehen.</h1>
+        <p class="unter">Beantworte 6 kurze Fragen zu deiner neuen Küche – wir melden uns mit einem ersten Vorschlag.</p>
+        <ul class="punkte">
+          <li>Ein Ansprechpartner für Küche und alle Handwerker</li>
+          <li>Montage in 3–4 Tagen</li>
+          <li>Kostenlos und unverbindlich</li>
+        </ul>
+        <button class="btn btn--breit" type="button" data-weiter>Küchen-Check starten →</button>
+        <div class="vertrauen">
+          <span><span class="sterne">★★★★★</span> <b>68 Bewertungen</b> auf ProvenExpert</span>
+          <span>📍 Gosau · fürs ganze Salzkammergut</span>
+        </div>
+      </div>
+      <img src="../bilder/klein/bilder_kueche-gosau-insel.jpg" width="800" height="600"
+           alt="Moderne Küche mit Kochinsel und indirekter Beleuchtung, geplant und montiert von der Schmez Tischlerei">
+    </div>
+  </section>
+
+  <!-- 1 · VORHABEN -->
+  <section class="schritt" data-schritt="1" data-frage="Vorhaben" data-einzeln>
+    <h2>Was planst du?</h2>
+    <p class="unter">Tipp einfach an, was am besten passt.</p>
+    <div class="kacheln">
+      <button type="button" class="kachel" data-wert="Neue Küche im bestehenden Haus">
+        <img src="../bilder/klein/bilder_kueche-badischl-weiss.jpg" alt="" width="800" height="600" loading="lazy">
+        <span class="text">Neue Küche<span class="klein">im bestehenden Haus</span></span></button>
+      <button type="button" class="kachel" data-wert="Küche im Zuge einer Sanierung">
+        <img src="../bilder/klein/bilder_kueche-gosau-altholz.jpg" alt="" width="800" height="600" loading="lazy">
+        <span class="text">Sanierung<span class="klein">Küche + Umbau</span></span></button>
+      <button type="button" class="kachel" data-wert="Küche für einen Neubau">
+        <img src="../bilder/klein/bilder_kueche-gosau-eiche.jpg" alt="" width="800" height="600" loading="lazy">
+        <span class="text">Neubau<span class="klein">Küche fürs neue Haus</span></span></button>
+      <button type="button" class="kachel" data-wert="Erst einmal informieren">
+        <img src="../bilder/klein/bilder_kueche-abtenau.jpg" alt="" width="800" height="600" loading="lazy">
+        <span class="text">Erst informieren<span class="klein">noch ganz am Anfang</span></span></button>
+    </div>
+    <div class="navi"><button type="button" class="zurueck" data-zurueck>← zurück</button></div>
+  </section>
+
+  <!-- 2 · STIL -->
+  <section class="schritt" data-schritt="2" data-frage="Stil" data-einzeln>
+    <h2>Welcher Stil gefällt dir?</h2>
+    <p class="unter">Nur eine erste Richtung – geplant wird später ganz genau.</p>
+    <div class="kacheln">
+      <button type="button" class="kachel" data-wert="Modern">
+        <img src="../bilder/klein/bilder_trends_holzoptik.jpg" alt="" width="800" height="600" loading="lazy">
+        <span class="text">Modern<span class="klein">klar, grifflos</span></span></button>
+      <button type="button" class="kachel" data-wert="Landhaus">
+        <img src="../bilder/klein/bilder_kueche-gosau-salbei.jpg" alt="" width="800" height="600" loading="lazy">
+        <span class="text">Landhaus<span class="klein">gemütlich, zeitlos</span></span></button>
+      <button type="button" class="kachel" data-wert="Holz / Altholz">
+        <img src="../bilder/klein/bilder_kueche-gosau-altholz.jpg" alt="" width="800" height="600" loading="lazy">
+        <span class="text">Holz &amp; Altholz<span class="klein">warm, natürlich</span></span></button>
+      <button type="button" class="kachel" data-wert="Hell / Weiß">
+        <img src="../bilder/klein/bilder_kueche-badischl-weiss.jpg" alt="" width="800" height="600" loading="lazy">
+        <span class="text">Hell &amp; weiß<span class="klein">freundlich, offen</span></span></button>
+    </div>
+    <div class="navi"><button type="button" class="zurueck" data-zurueck>← zurück</button></div>
+  </section>
+
+  <!-- 3 · GEWERKE (Mehrfachauswahl) -->
+  <section class="schritt" data-schritt="3" data-frage="Was mitgemacht werden soll">
+    <h2>Was sollen wir dir noch abnehmen?</h2>
+    <p class="unter">Mehrere möglich – wir koordinieren alle Handwerker für dich.</p>
+    <div class="kacheln kacheln--text">
+      <button type="button" class="kachel" data-wert="Elektriker" aria-pressed="false">⚡ Elektriker</button>
+      <button type="button" class="kachel" data-wert="Installateur" aria-pressed="false">🚰 Installateur</button>
+      <button type="button" class="kachel" data-wert="Maurer / Umbau" aria-pressed="false">🧱 Maurer / Umbau</button>
+      <button type="button" class="kachel" data-wert="Maler" aria-pressed="false">🎨 Maler</button>
+      <button type="button" class="kachel" data-wert="Boden" aria-pressed="false">🪵 Boden</button>
+      <button type="button" class="kachel" data-wert="Fenster / Türen" aria-pressed="false">🚪 Fenster / Türen</button>
+      <button type="button" class="kachel" data-wert="Nur die Küche" aria-pressed="false" data-exklusiv>Nur die Küche</button>
+      <button type="button" class="kachel" data-wert="Weiß ich noch nicht" aria-pressed="false" data-exklusiv>Weiß ich noch nicht</button>
+    </div>
+    <div class="navi">
+      <button type="button" class="zurueck" data-zurueck>← zurück</button>
+      <button type="button" class="btn" data-weiter data-braucht-auswahl disabled>Weiter →</button>
+    </div>
+  </section>
+
+  <!-- 4 · ZEITPUNKT -->
+  <section class="schritt" data-schritt="4" data-frage="Wann" data-einzeln>
+    <h2>Wann soll die Küche fertig sein?</h2>
+    <p class="unter">Damit wir die Planung richtig einteilen.</p>
+    <div class="kacheln kacheln--text">
+      <button type="button" class="kachel" data-wert="So bald wie möglich">So bald wie möglich</button>
+      <button type="button" class="kachel" data-wert="In 3–6 Monaten">In 3–6 Monaten</button>
+      <button type="button" class="kachel" data-wert="In 6–12 Monaten">In 6–12 Monaten</button>
+      <button type="button" class="kachel" data-wert="Später / noch offen">Später / noch offen</button>
+    </div>
+    <div class="navi"><button type="button" class="zurueck" data-zurueck>← zurück</button></div>
+  </section>
+
+  <!-- 5 · BUDGET -->
+  <section class="schritt" data-schritt="5" data-frage="Budget (netto)" data-einzeln>
+    <h2>Wie viel möchtest du ungefähr investieren?</h2>
+    <p class="unter">Für die Küche selbst, netto. Hilft uns, dir passende Vorschläge zu machen.</p>
+    <div class="kacheln kacheln--text">
+      <button type="button" class="kachel" data-wert="bis 15.000 €">bis 15.000 €</button>
+      <button type="button" class="kachel" data-wert="15.000 – 25.000 €">15.000 – 25.000 €</button>
+      <button type="button" class="kachel" data-wert="25.000 – 40.000 €">25.000 – 40.000 €</button>
+      <button type="button" class="kachel" data-wert="über 40.000 €">über 40.000 €</button>
+      <button type="button" class="kachel" data-wert="Weiß ich noch nicht">Weiß ich noch nicht</button>
+    </div>
+    <div class="navi"><button type="button" class="zurueck" data-zurueck>← zurück</button></div>
+  </section>
+
+  <!-- 6 · ORT -->
+  <section class="schritt" data-schritt="6" data-frage="Ort" data-einzeln>
+    <h2>Wo soll die Küche hinkommen?</h2>
+    <p class="unter">Wir sind rund ums Salzkammergut unterwegs.</p>
+    <div class="kacheln kacheln--text">
+      <button type="button" class="kachel" data-wert="Gosau">Gosau</button>
+      <button type="button" class="kachel" data-wert="Bad Goisern">Bad Goisern</button>
+      <button type="button" class="kachel" data-wert="Hallstatt / Obertraun">Hallstatt / Obertraun</button>
+      <button type="button" class="kachel" data-wert="Bad Ischl">Bad Ischl</button>
+      <button type="button" class="kachel" data-wert="Abtenau / Russbach">Abtenau / Russbach</button>
+      <button type="button" class="kachel" data-wert="Ausseerland">Ausseerland</button>
+      <button type="button" class="kachel" data-wert="Gmunden / Traunsee">Gmunden / Traunsee</button>
+      <button type="button" class="kachel" data-wert="Salzburg und Umgebung">Salzburg &amp; Umgebung</button>
+      <button type="button" class="kachel" data-wert="Anderer Ort">Anderer Ort</button>
+    </div>
+    <div class="navi"><button type="button" class="zurueck" data-zurueck>← zurück</button></div>
+  </section>
+
+  <!-- 7 · KONTAKT -->
+  <section class="schritt" data-schritt="7">
+    <h2>Fast geschafft! Wie erreichen wir dich?</h2>
+    <p class="unter">Wir rufen dich innerhalb von 2 Werktagen an – unverbindlich, ohne Verkaufsgespräch.</p>
+    <dl class="zusammenfassung" id="zusammenfassung"></dl>
+    <div class="formular-raster">
+      <div class="feld">
+        <label for="k-name">Dein Name</label>
+        <input id="k-name" name="Name" type="text" autocomplete="name" required>
+        <p class="fehler">Bitte trag deinen Namen ein.</p>
+      </div>
+      <div class="feld">
+        <label for="k-tel">Telefonnummer</label>
+        <input id="k-tel" name="Telefon" type="tel" autocomplete="tel" inputmode="tel" required placeholder="z. B. 0664 …">
+        <p class="fehler">Bitte trag eine Telefonnummer ein, damit wir dich erreichen.</p>
+      </div>
+      <div class="feld">
+        <label for="k-mail">E-Mail <span class="hinweis">– optional</span></label>
+        <input id="k-mail" name="E-Mail" type="email" autocomplete="email">
+      </div>
+      <div class="feld">
+        <label for="k-zeit">Wann rufen wir am besten an?</label>
+        <select id="k-zeit" name="Rückruf">
+          <option>Egal</option><option>Vormittags</option><option>Nachmittags</option><option>Abends</option>
+        </select>
+      </div>
+    </div>
+    <div class="feld">
+      <label for="k-text">Noch etwas, das wir wissen sollten? <span class="hinweis">– optional</span></label>
+      <textarea id="k-text" name="Nachricht" placeholder="z. B.: Die alte Küche ist 25 Jahre alt, wir wollen eine Kochinsel."></textarea>
+    </div>
+    <!-- Spamschutz: echte Besucher sehen dieses Feld nicht -->
+    <input class="honig" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <button class="btn btn--breit" type="submit" id="senden">Kostenlosen Rückruf anfordern</button>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+    <p class="datenschutz">Deine Angaben verwenden wir nur, um dich wegen deiner Küche zu kontaktieren.
+      Der Versand läuft über den Formulardienst FormSubmit. Mehr dazu im
+      <a href="../#datenschutz">Datenschutz</a>.</p>
+    <div class="navi"><button type="button" class="zurueck" data-zurueck>← zurück</button></div>
+  </section>
+
+  <!-- 8 · DANKE -->
+  <section class="schritt" data-schritt="8">
+    <div class="danke">
+      <img src="../bilder/team/martin.jpg" alt="Martin Schwaighofer, Tischlermeister" width="800" height="1000">
+      <div>
+        <p class="vorzeile">Danke!</p>
+        <h2>Deine Anfrage ist bei uns angekommen.</h2>
+        <p class="unter">Ich schau mir deine Antworten persönlich an und wir melden uns innerhalb von 2 Werktagen bei dir.
+          <br>– Martin Schwaighofer, Tischlermeister</p>
+        <p><a class="btn btn--wa" href="https://wa.me/436802424007?text=Hallo%2C%20ich%20habe%20gerade%20den%20K%C3%BCchen-Check%20ausgef%C3%BCllt." target="_blank" rel="noopener">Schneller? Schreib uns auf WhatsApp</a></p>
+        <p><a href="../#arbeiten">Inzwischen unsere Küchen anschauen →</a></p>
+      </div>
+    </div>
+  </section>
+
+  </form>
+</main>
+
+<footer>
+  Schmez Tischlerei GmbH · Austraße 22, 4824 Gosau ·
+  <a href="tel:+43613620022">06136 200 22</a> ·
+  <a href="../#impressum">Impressum</a> · <a href="../#datenschutz">Datenschutz</a>
+</footer>
+
+<script>
+/* ======================================================================
+   KÜCHEN-CHECK – Ablauf
+   Die Antworten werden über FormSubmit (formsubmit.co) an die Firmen-
+   adresse geschickt. Beim allerersten Absenden schickt FormSubmit eine
+   Bestätigungs-Mail an diese Adresse – dort einmal auf „Activate“
+   klicken, danach kommen alle Anfragen direkt an.
+   >>> HIER EMPFÄNGER-ADRESSE ÄNDERN <<<
+   ====================================================================== */
+var EMPFAENGER = "office@schmez.at";
+
+(function () {
+  var form = document.getElementById("check");
+  var schritte = [].slice.call(document.querySelectorAll(".schritt"));
+  var balken = document.getElementById("balken");
+  var info = document.getElementById("schritt-info");
+  var aktuell = 0, FRAGEN = 6, antworten = {};
+
+  function zeige(n) {
+    schritte[aktuell].classList.remove("aktiv");
+    aktuell = n;
+    schritte[n].classList.add("aktiv");
+    var frage = Math.min(n, FRAGEN + 1);
+    balken.style.width = (n === 0 ? 0 : Math.min(100, Math.round(frage / (FRAGEN + 1) * 100))) + "%";
+    info.textContent = (n >= 1 && n <= FRAGEN) ? "Frage " + n + " von " + FRAGEN : (n === FRAGEN + 1 ? "Letzter Schritt" : "");
+    if (n === FRAGEN + 1) fasseZusammen();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    var ziel = schritte[n].querySelector("h1, h2");
+    if (ziel) { ziel.setAttribute("tabindex", "-1"); ziel.focus({ preventScroll: true }); }
+  }
+
+  function fasseZusammen() {
+    var dl = document.getElementById("zusammenfassung"); dl.innerHTML = "";
+    Object.keys(antworten).forEach(function (k) {
+      var dt = document.createElement("dt"); dt.textContent = k;
+      var dd = document.createElement("dd"); dd.textContent = antworten[k];
+      dl.appendChild(dt); dl.appendChild(dd);
+    });
+  }
+
+  /* Weiter / zurück */
+  form.addEventListener("click", function (e) {
+    var t = e.target.closest("button");
+    if (!t) return;
+    if (t.hasAttribute("data-weiter")) { zeige(aktuell + 1); return; }
+    if (t.hasAttribute("data-zurueck")) { zeige(Math.max(0, aktuell - 1)); return; }
+    if (!t.classList.contains("kachel")) return;
+
+    var schritt = t.closest(".schritt");
+    var frage = schritt.getAttribute("data-frage");
+
+    if (schritt.hasAttribute("data-einzeln")) {
+      /* Einfachauswahl: markieren und automatisch weiter */
+      schritt.querySelectorAll(".kachel").forEach(function (k) { k.setAttribute("aria-pressed", "false"); });
+      t.setAttribute("aria-pressed", "true");
+      antworten[frage] = t.getAttribute("data-wert");
+      setTimeout(function () { zeige(aktuell + 1); }, 220);
+    } else {
+      /* Mehrfachauswahl */
+      var an = t.getAttribute("aria-pressed") !== "true";
+      if (an && t.hasAttribute("data-exklusiv")) {
+        schritt.querySelectorAll(".kachel").forEach(function (k) { k.setAttribute("aria-pressed", "false"); });
+      } else if (an) {
+        schritt.querySelectorAll(".kachel[data-exklusiv]").forEach(function (k) { k.setAttribute("aria-pressed", "false"); });
+      }
+      t.setAttribute("aria-pressed", an ? "true" : "false");
+      var gewaehlt = [].slice.call(schritt.querySelectorAll('.kachel[aria-pressed="true"]')).map(function (k) { return k.getAttribute("data-wert"); });
+      antworten[frage] = gewaehlt.join(", ");
+      schritt.querySelector("[data-braucht-auswahl]").disabled = gewaehlt.length === 0;
+    }
+  });
+
+  /* Absenden */
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var name = document.getElementById("k-name"), tel = document.getElementById("k-tel");
+    var fehlt = false;
+    [[name, name.value.trim().length < 2], [tel, tel.value.replace(/\D/g, "").length < 6]].forEach(function (p) {
+      p[0].parentNode.classList.toggle("ist-fehler", p[1]);
+      p[0].setAttribute("aria-invalid", p[1] ? "true" : "false");
+      if (p[1] && !fehlt) { p[0].focus(); fehlt = true; }
+    });
+    if (fehlt) return;
+
+    var status = document.getElementById("status"), knopf = document.getElementById("senden");
+    knopf.disabled = true; knopf.textContent = "Wird gesendet …";
+
+    var daten = {
+      _subject: "Küchen-Check: " + name.value.trim() + (antworten["Ort"] ? " (" + antworten["Ort"] + ")" : ""),
+      _template: "table",
+      _captcha: "false",
+      _honey: form.elements["_honey"].value
+    };
+    Object.keys(antworten).forEach(function (k) { daten[k] = antworten[k]; });
+    ["Name", "Telefon", "E-Mail", "Rückruf", "Nachricht"].forEach(function (f) { daten[f] = form.elements[f].value.trim() || "-"; });
+    if (form.elements["E-Mail"].value.trim()) daten._replyto = form.elements["E-Mail"].value.trim();
+    daten["Quelle"] = "Küchen-Check auf schmez.at" + (location.search ? " " + location.search : "");
+
+    fetch("https://formsubmit.co/ajax/" + EMPFAENGER, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify(daten)
+    })
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function (j) {
+      if (j.success === false || j.success === "false") throw new Error(j.message || "Fehler");
+      zeige(FRAGEN + 2);
+      balken.style.width = "100%"; info.textContent = "";
+    })
+    .catch(function () {
+      knopf.disabled = false; knopf.textContent = "Kostenlosen Rückruf anfordern";
+      status.className = "status sichtbar";
+      status.innerHTML = "Das hat leider nicht geklappt. Ruf uns einfach an: <a href=\"tel:+43613620022\">06136 200 22</a> " +
+        "oder schreib auf <a href=\"https://wa.me/436802424007\" target=\"_blank\" rel=\"noopener\">WhatsApp</a>.";
+    });
+  });
+
+  /* Enter in einem Textfeld soll nicht versehentlich zu früh absenden */
+  form.addEventListener("keydown", function (e) {
+    if (e.key === "Enter" && e.target.tagName === "INPUT" && aktuell !== FRAGEN + 1) e.preventDefault();
+  });
+})();
+</script>
+</body>
+</html>
